@@ -1,0 +1,12 @@
+freertos.c:66:13:RTC_CalendarShow	16	static
+freertos.c:95:6:vApplicationGetIdleTaskMemory	24	static
+freertos.c:111:6:MX_FREERTOS_Init	240	static
+freertos.c:172:6:prt_hexbnb	72	static
+freertos.c:206:6:StartDefaultTask	16	static
+freertos.c:230:6:StartTask02	56	static
+freertos.c:287:6:StartTask03	16	static
+freertos.c:305:6:StartTask04	16	static
+freertos.c:323:6:StartTask05	16	static
+freertos.c:341:6:StartTask06	16	static
+freertos.c:359:6:StartTask07	16	static
+freertos.c:377:6:StartTask08	16	static

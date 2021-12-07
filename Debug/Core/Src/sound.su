@@ -1,0 +1,4 @@
+sound.c:12:6:play	24	static
+sound.c:17:6:volume	24	static
+sound.c:22:6:playstop	16	static
+sound.c:27:6:kend	16	static
