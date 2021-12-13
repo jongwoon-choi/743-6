@@ -41,7 +41,7 @@
 #include <stdlib.h>
 #include <string.h>
 // #include "parameter.h"
-
+#include "dfplayer_mini.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -185,8 +185,10 @@ int main(void)
 
 	printf("Hello \n\r");
 
+	DF_Init(15);
+	DF_PlayFromStart();
 
-	volume(0x15);
+
  	LCD_Test();
   /* USER CODE END 2 */
 

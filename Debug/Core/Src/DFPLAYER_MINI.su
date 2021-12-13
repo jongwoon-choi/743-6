@@ -1,0 +1,8 @@
+DFPLAYER_MINI.c:25:6:Send_cmd	32	static
+DFPLAYER_MINI.c:35:6:DF_PlayFromStart	8	static
+DFPLAYER_MINI.c:42:6:DF_Init	16	static
+DFPLAYER_MINI.c:50:6:DF_Play	16	static
+DFPLAYER_MINI.c:58:6:DF_MP3_play	16	static
+DFPLAYER_MINI.c:64:6:DF_Volume	16	static
+DFPLAYER_MINI.c:70:6:DF_EQ	16	static
+DFPLAYER_MINI.c:75:6:DF_reset	8	static

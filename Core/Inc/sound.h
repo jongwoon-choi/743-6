@@ -10,36 +10,43 @@
 
 #include "main.h"
 
-void play(uint8_t Track);
-void volume(uint8_t vol);
-void playstop(void);
-void kend(void);
+#define S_foot  	01
+#define S_setup		02
+#define S_calibration		03
+#define S_boook		04
+#define S_stop		05
+#define S_clear  	06
+#define S_sound  	07
+#define S_hand		0x08
+#define S_write		09
+#define S_read  	10
+#define S_mute		11
+#define S_waring  	12
+#define S_total_energy	13
+#define S_total_count	14
+#define S_12mm  	15
+#define S_5mm		16
+#define S_put-lens  17
+#define S_get		18
+#define S_Beek  	19
+//#define S_write		20
+#define S_welcome1	21
+#define S_welcome2	22
+#define S_cooling  	23
+#define S_stamp		24
+#define S_ready  	25
+#define S_toning	26
+#define S_Boook  	27
 
-#define S_Beek  	06
-#define S_stop		07
-#define S_clear  	 9
-#define S_mute		10
-#define S_sound  	11
-#define S_hand		12
-#define S_foot  	13
-#define S_setup		14
-#define S_calibration	15
 
-#define S_cooling  	01
-#define S_stamp		02
-#define S_ready  	03
-#define S_toning	04
-#define S_Boook  	05
-#define S_welcome	25
-#define S_waring  	16
-#define S_total_energy	17
-#define S_total_count	18
-#define S_12mm  	19
-#define S_5mm		20
-#define S_put-lens  21
-#define S_get		22
-#define S_read  	23
-#define S_write		24
+
+
+
+
+
+
+
+
 
 
 

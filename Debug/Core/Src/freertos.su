@@ -6,10 +6,10 @@ freertos.c:211:6:StartTask02	24	static
 freertos.c:531:6:StartTask03	16	static
 freertos.c:615:6:StartTask04	16	static
 freertos.c:636:6:StartTask05	16	static
-freertos.c:667:6:StartTask06	16	static
-freertos.c:685:6:StartTask07	24	static
-freertos.c:756:6:StartTask08	16	static
-freertos.c:772:6:push	16	static
-freertos.c:782:9:pop	24	static
-freertos.c:793:9:isEmpty	16	static
-freertos.c:798:6:HAL_UART_RxCpltCallback	16	static
+freertos.c:667:6:StartTask06	24	static
+freertos.c:692:6:StartTask07	24	static
+freertos.c:763:6:StartTask08	16	static
+freertos.c:779:6:push	16	static
+freertos.c:789:9:pop	24	static
+freertos.c:800:9:isEmpty	16	static
+freertos.c:805:6:HAL_UART_RxCpltCallback	16	static

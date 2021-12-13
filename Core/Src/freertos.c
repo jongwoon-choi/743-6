@@ -30,7 +30,7 @@
 #include "usart.h"
 #include "parameter.h"
 #include "hardware.h"
-
+#include "sound.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -242,7 +242,7 @@ void StartTask02(void const * argument)
 				if (!Ready)
 				{ //STOP
 					Ready = 1;
-					// play(S_ready);  //Ready
+					DF_Play(S_ready);  //Ready
 					osDelay(200);
 					HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_RESET); //Interloc
 					HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, GPIO_PIN_SET); // AKELA pointer
@@ -251,7 +251,7 @@ void StartTask02(void const * argument)
 				else if (Ready)
 				{ //READY
 					Ready = 0;
-					// play(S_stop);  //Stop
+					DF_Play(S_stop);  //Stop
 					osDelay(200);
 	//				// GUI_ready2stop();
 				}
@@ -259,7 +259,7 @@ void StartTask02(void const * argument)
 
 			case (0x1240):  //TONING Page switching
 			Stamp = 0;
-			// play(S_toning); //Toning sound
+			DF_Play(S_toning); //Toning sound
 			//  EEPROM_Read(Last_mode); //save current mode
 			// // show_parameter_toning();
 			//  show_ST_key_value();
@@ -268,7 +268,7 @@ void StartTask02(void const * argument)
 
 			case (0x1250):  //STAMP page switching
 			Stamp = 1;
-			// play(S_stamp);  //Stamp
+			DF_Play(S_stamp);  //Stamp
 			//  EEPROM_Read(Last_mode);  //save current mode
 			// show_parameter_stamp();
 			//  show_ST_key_value();
@@ -277,11 +277,11 @@ void StartTask02(void const * argument)
 
 			// ===  Jump to Stamp mode from Monitor mode
 			case (0x1296):
-			// play(S_Beek);
+			DF_Play(S_Beek);
 			Monitor = 0;
 
 			Stamp = 1;
-			// play(S_stamp);  //Stamp
+			DF_Play(S_stamp);  //Stamp
 			//  EEPROM_Read(Last_mode);  //save current mode
 			// show_parameter_stamp();
 			//  show_ST_key_value();
@@ -306,7 +306,7 @@ void StartTask02(void const * argument)
 
 			// ===  Move to Monitor mode
 			case (0x1298):
-			// play(S_Beek);
+			DF_Play(S_Beek);
 			Monitor = true;
 			// // GUI_ready2stop(); // clear "ready" state
 
@@ -334,7 +334,7 @@ void StartTask02(void const * argument)
 				if (!Laser_ON)
 				{
 					Laser_ON = 1;
-					// play(S_ready);  //Ready
+					DF_Play(S_ready);  //Ready
 					osDelay(200);
 					HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_RESET); //Interloc
 					HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, GPIO_PIN_SET); // AKELA pointer
@@ -344,7 +344,7 @@ void StartTask02(void const * argument)
 				else
 				{
 					Laser_ON = 0;
-					// play(S_stop);  //Stop
+					DF_Play(S_stop);  //Stop
 					osDelay(200);
 					GUI_mon_Laser_ON[7] = 1;
 					HAL_UART_Transmit(&huart1, GUI_mon_Laser_ON, sizeof(GUI_mon_Laser_ON), 100);
@@ -358,8 +358,8 @@ void StartTask02(void const * argument)
 
 			// ===  Increament & decrement adjustment at Monitoring
 			case (0x1345):
-			// play(S_Beek);
-			// 5*330 = 1650:최고 DAC �??, ?��?�� HP?��?��?�� CW�?? 5 W 출력?��, 330?? Cut&Try�?? ?��?? �??
+			DF_Play(S_Beek);
+			// 5*330 = 1650:최고 DAC �??, ?��?�� HP?��?��?�� CW�?? 5 W 출력?��, 330?? Cut&Try�?? ?��?? �??
 			Power_DAC = ((Rx1_Buffer[7] << 8) + Rx1_Buffer[8])*330;  //0~2100
 			GUI_mon_power[6] = Rx1_Buffer[7];  //Last_mpower_high
 			GUI_mon_power[7] = Rx1_Buffer[8];  //Last_mpower_low (real)
@@ -372,7 +372,7 @@ void StartTask02(void const * argument)
 
 			///////////////////
 			case (0x1300):  //  Increament & decrement adjustment at STAMP
-			// play(S_Beek);
+			DF_Play(S_Beek);
 			//  EEPROM_Write( Last_power_high, Rx1_Buffer[7]);
 			//  EEPROM_Write( Last_power_low, Rx1_Buffer[8]);
 			Power_DAC = (Rx1_Buffer[7] << 8) + Rx1_Buffer[8];  ///////
@@ -380,7 +380,7 @@ void StartTask02(void const * argument)
 			break;
 
 			case (0x1305):  // Increament & decrement adjustment at Toning
-			// play(S_Beek);
+			DF_Play(S_Beek);
 			//  EEPROM_Write( Last_power_high_t, Rx1_Buffer[7]);
 			//  EEPROM_Write( Last_power_low_t, Rx1_Buffer[8]);
 			Power_DAC_t = (Rx1_Buffer[7] << 8) + Rx1_Buffer[8];  ///////
@@ -428,7 +428,7 @@ void StartTask02(void const * argument)
 				if (Sound)
 				{
 					Sound = 0;
-					// play(S_sound);  //sound
+					DF_Play(S_sound);  //sound
 					//  EEPROM_Write( Last_sound, Sound);
 					GUI_sound[7] = 0;
 					HAL_UART_Transmit(&huart1, GUI_sound, sizeof(GUI_sound),100);
@@ -437,7 +437,7 @@ void StartTask02(void const * argument)
 				else
 				{
 					Sound = true;
-					// play(S_mute);  //mute
+					DF_Play(S_mute);  //mute
 					//  EEPROM_Write( Last_sound, Sound);
 					GUI_sound[7] = 1;
 					HAL_UART_Transmit(&huart1, GUI_sound, sizeof(GUI_sound),100);
@@ -451,7 +451,7 @@ void StartTask02(void const * argument)
 				if (Hand_foot)
 				{
 					Hand_foot = 0;
-					// play(S_hand);  //hand
+					DF_Play(S_hand);  //hand
 					GUI_foot[7] = 0;
 					HAL_UART_Transmit(&huart1, GUI_foot, sizeof(GUI_foot), 100);
 					//  EEPROM_Write( Last_Hand_foot, Hand_foot);
@@ -459,7 +459,7 @@ void StartTask02(void const * argument)
 				else
 				{
 					Hand_foot = true;
-					// play(S_foot); //foot
+					DF_Play(S_foot); //foot
 					GUI_foot[7] = 1;
 					HAL_UART_Transmit(&huart1, GUI_foot, sizeof(GUI_foot), 100);
 					//  EEPROM_Write( Last_Hand_foot, Hand_foot);
@@ -471,7 +471,7 @@ void StartTask02(void const * argument)
 				if (Count_energy)
 				{
 			    	Count_energy = 0;
-					// play(S_total_energy);
+					DF_Play(S_total_energy);
 					GUI_sum_mode[7] = 0;
 					HAL_UART_Transmit(&huart1, GUI_sum_mode,sizeof(GUI_sum_mode), 100);
 					//  EEPROM_Write( Last_Count_energy, Count_energy);
@@ -479,7 +479,7 @@ void StartTask02(void const * argument)
 				else
 				{
 					Count_energy = 1;
-					// play(S_total_count);
+					DF_Play(S_total_count);
 					GUI_sum_mode[7] = 1;
 					HAL_UART_Transmit(&huart1, GUI_sum_mode,sizeof(GUI_sum_mode), 100);
 					//  EEPROM_Write( Last_Count_energy, Count_energy);
@@ -491,7 +491,7 @@ void StartTask02(void const * argument)
 								Key_memo++;
 			if (Key_memo == GUI_save_delay)
 			{
-				// play(S_clear);   //sound 'clear'
+				DF_Play(S_clear);   //sound 'clear'
 				sum_count = 0;
 				sum_count_t = 0;
 				sum_energy = 0;
@@ -618,10 +618,10 @@ void StartTask04(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-	     ttt = (float)HP_Temp/10;
+	    ttt = (float)HP_Temp/10;
 	//     HAL_UART_Transmit(&huart4,  HP_Temp ,sizeof(3), 100);
-	    printf("Temp = %d \r\n", HP_Temp);
-    osDelay(200);
+	 //   printf("Temp = %d \r\n", HP_Temp);
+	    osDelay(200);
   }
   /* USER CODE END StartTask04 */
 }
@@ -639,7 +639,7 @@ void StartTask05(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-		RTC_CalendarShow(&sdatestructureget,&stimestructureget);
+		RTC_CalendarShow(&sdatestructureget, &stimestructureget);
 		/*
 //		if (stimestructureget.Seconds % 2 == 1)
 //			sprintf((char *)&text,"Time %02d:%02d:%02d",stimestructureget.Hours, stimestructureget.Minutes,stimestructureget.Seconds);
@@ -670,6 +670,13 @@ void StartTask06(void const * argument)
   /* Infinite loop */
   for(;;)
   {
+	  for(int i=1; i<30;i++)
+	  {
+		  printf("DF_Play No= %d\r\n",i);
+		  //  DF_Play(i);
+
+		  osDelay(2000);
+	  }
     osDelay(1);
   }
   /* USER CODE END StartTask06 */

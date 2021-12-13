@@ -1,14 +1,5 @@
-Core/Src/freertos.o: ../Core/Src/freertos.c \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
- ../Core/Inc/FreeRTOSConfig.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
- ../Core/Inc/main.h ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
+Core/Src/DFPLAYER_MINI.o: ../Core/Src/DFPLAYER_MINI.c ../Core/Inc/main.h \
+ ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../Core/Inc/stm32h7xx_hal_conf.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h \
@@ -52,35 +43,7 @@ Core/Src/freertos.o: ../Core/Src/freertos.c \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pcd.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_usb.h \
- ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pcd_ex.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
- ../Core/Inc/rtc.h ../Core/Inc/main.h ../Core/Inc/usart.h \
- ../Core/Inc/parameter.h ../Core/Inc/hardware.h ../Core/Inc/sound.h
-
-../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
-
-../Core/Inc/FreeRTOSConfig.h:
-
-../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
-
-../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h:
-
-../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h:
-
-../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h:
-
-../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h:
-
-../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
-
-../Middlewares/Third_Party/FreeRTOS/Source/include/list.h:
+ ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pcd_ex.h
 
 ../Core/Inc/main.h:
 
@@ -173,31 +136,3 @@ Core/Src/freertos.o: ../Core/Src/freertos.c \
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_usb.h:
 
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pcd_ex.h:
-
-../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h:
-
-../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h:
-
-../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
-
-../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
-
-../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h:
-
-../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
-
-../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h:
-
-../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h:
-
-../Core/Inc/rtc.h:
-
-../Core/Inc/main.h:
-
-../Core/Inc/usart.h:
-
-../Core/Inc/parameter.h:
-
-../Core/Inc/hardware.h:
-
-../Core/Inc/sound.h:

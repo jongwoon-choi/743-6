@@ -1,3 +1,4 @@
+"./Core/Src/DFPLAYER_MINI.o"
 "./Core/Src/adc.o"
 "./Core/Src/dac.o"
 "./Core/Src/freertos.o"
