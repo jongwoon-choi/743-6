@@ -683,6 +683,8 @@ void StartTask06(void const * argument)
 	  printf("Write value = %d\r\n",wdata[i]);
 	  printf("Read value  = %d\r\n",rdata[i]);
 	  }
+
+	  printf("Read rdata[5] = %d\r\n",rdata[5]);
 	  printf("\n\r");
     osDelay(2000);
 	 }
