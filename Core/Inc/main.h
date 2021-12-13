@@ -43,6 +43,9 @@ typedef struct{
 
 uart_t  	uart_1, uart_4;
 uint8_t 	rx1_data, rx4_data;
+
+ uint8_t wdata[100]  ;
+ uint8_t rdata[100]  ;
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

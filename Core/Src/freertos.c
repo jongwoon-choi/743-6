@@ -359,7 +359,7 @@ void StartTask02(void const * argument)
 			// ===  Increament & decrement adjustment at Monitoring
 			case (0x1345):
 			DF_Play(S_Beek);
-			// 5*330 = 1650:최고 DAC �??, ?��?�� HP?��?��?�� CW�?? 5 W 출력?��, 330?? Cut&Try�?? ?��?? �??
+			// 5*330 = 1650:최고 DAC �???, ?��?�� HP?��?��?�� CW�??? 5 W 출력?��, 330?? Cut&Try�??? ?��?? �???
 			Power_DAC = ((Rx1_Buffer[7] << 8) + Rx1_Buffer[8])*330;  //0~2100
 			GUI_mon_power[6] = Rx1_Buffer[7];  //Last_mpower_high
 			GUI_mon_power[7] = Rx1_Buffer[8];  //Last_mpower_low (real)
@@ -670,14 +670,22 @@ void StartTask06(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-	  for(int i=1; i<30;i++)
-	  {
-		  printf("DF_Play No= %d\r\n",i);
-		  //  DF_Play(i);
-
-		  osDelay(2000);
+	 for(int k=0;k<100;k++){
+	  for(int i=0;i<100;i++){
+	  	wdata[i] = k;
 	  }
-    osDelay(1);
+
+	  W25qxx_EraseSector(0);
+	  W25qxx_PageProgram(wdata, 0, 100);
+	  W25qxx_Read(rdata, 0, 100);
+
+	  for(int i =0;i<10;i++){
+	  printf("Write value = %d\r\n",wdata[i]);
+	  printf("Read value  = %d\r\n",rdata[i]);
+	  }
+	  printf("\n\r");
+    osDelay(2000);
+	 }
   }
   /* USER CODE END StartTask06 */
 }
