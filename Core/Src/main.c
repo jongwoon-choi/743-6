@@ -32,13 +32,21 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "lcd.h"
-#include<stdio.h>
-#include<usbd_cdc_if.h>
+#include <stdio.h>
+#include <usbd_cdc_if.h>
 #include "sound.h"
+
+
+#include <time.h>
+#include <stdlib.h>
+#include <string.h>
+// #include "parameter.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
+//void init_uart(uart_t *u);
 
 /* USER CODE END PTD */
 
@@ -61,6 +69,7 @@
 void SystemClock_Config(void);
 void PeriphCommonClock_Config(void);
 void MX_FREERTOS_Init(void);
+static void MX_NVIC_Init(void);
 /* USER CODE BEGIN PFP */
 
 int _write(int fd, char *str, int len) {
@@ -96,6 +105,13 @@ static void LED_Blink(uint32_t Hdelay,uint32_t Ldelay)
 	HAL_Delay(Ldelay-1);
 }
 
+void init_uart(uart_t *u)
+{
+	u->head = 0;
+	u->tail = 0;
+	memset(u->buffer, 0, sizeof(u->buffer));
+}
+
 /**
   * @brief  Get the current time and date.
   * @param
@@ -112,6 +128,8 @@ static void LED_Blink(uint32_t Hdelay,uint32_t Ldelay)
 int main(void)
 {
   /* USER CODE BEGIN 1 */
+
+	HAL_Init();
 
 #ifdef W25Qxx
   SCB->VTOR = QSPI_BASE;
@@ -155,10 +173,20 @@ int main(void)
   MX_ADC2_Init();
   MX_DAC1_Init();
   MX_ADC1_Init();
+
+  /* Initialize interrupts */
+  MX_NVIC_Init();
   /* USER CODE BEGIN 2 */
+	init_uart(&uart_1);
+	init_uart(&uart_4);
+	HAL_UART_Receive_IT(&huart1, &rx1_data, 1);
+	HAL_UART_Receive_IT(&huart4, &rx4_data, 1);
+
+	printf("Hello \n\r");
+
 
 	volume(0x15);
-	LCD_Test();
+ 	LCD_Test();
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */
@@ -278,9 +306,47 @@ void PeriphCommonClock_Config(void)
   }
 }
 
+/**
+  * @brief NVIC Configuration.
+  * @retval None
+  */
+static void MX_NVIC_Init(void)
+{
+  /* USART1_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(USART1_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ(USART1_IRQn);
+  /* USART3_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(USART3_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ(USART3_IRQn);
+  /* UART4_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(UART4_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ(UART4_IRQn);
+}
+
 /* USER CODE BEGIN 4 */
 
 /* USER CODE END 4 */
+
+/**
+  * @brief  Period elapsed callback in non blocking mode
+  * @note   This function is called  when TIM17 interrupt took place, inside
+  * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
+  * a global variable "uwTick" used as application time base.
+  * @param  htim : TIM handle
+  * @retval None
+  */
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+  /* USER CODE BEGIN Callback 0 */
+
+  /* USER CODE END Callback 0 */
+  if (htim->Instance == TIM17) {
+    HAL_IncTick();
+  }
+  /* USER CODE BEGIN Callback 1 */
+
+  /* USER CODE END Callback 1 */
+}
 
 /**
   * @brief  This function is executed in case of error occurrence.

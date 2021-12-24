@@ -33,6 +33,16 @@ extern "C" {
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+#define MAX_BUFFER_SIZE    (64)
+
+typedef struct{
+  uint8_t head;
+  uint8_t tail;
+  uint8_t buffer[MAX_BUFFER_SIZE];
+}uart_t;
+
+uart_t  	uart_1, uart_4;
+uint8_t 	rx1_data, rx4_data;
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

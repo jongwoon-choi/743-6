@@ -1,0 +1,12 @@
+sound.c:12:6:play	24	static
+sound.c:17:6:volume	24	static
+sound.c:22:6:playstop	16	static
+sound.c:27:6:kend	16	static
+sound.c:47:6:Send_cmd	32	static
+sound.c:57:6:DF_PlayFromStart	8	static
+sound.c:64:6:DF_Init	16	static
+sound.c:72:6:DF_Play	16	static
+sound.c:80:6:DF_MP3_play	16	static
+sound.c:86:6:DF_Volume	16	static
+sound.c:92:6:DF_EQ	16	static
+sound.c:97:6:DF_reset	8	static

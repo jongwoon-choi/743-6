@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;743-6/Core/Inc/DFPLAYER_MINI.h&apos;" deleteContents="false" description="Delete resource &apos;743-6/Core/Inc/DFPLAYER_MINI.h&apos;" element1="/743-6/Core/Inc/DFPLAYER_MINI.h" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1640152801637"/>&#x0A;<refactoring comment="Delete resource &apos;743-6/Core/Src/DFPLAYER_MINI.c&apos;" deleteContents="false" description="Delete resource &apos;743-6/Core/Src/DFPLAYER_MINI.c&apos;" element1="/743-6/Core/Src/DFPLAYER_MINI.c" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1640152814301"/>
+</session>

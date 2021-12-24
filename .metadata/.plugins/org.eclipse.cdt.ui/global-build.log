@@ -1,0 +1,1608 @@
+12:53:43 **** Incremental Build of configuration Debug for project 743-6 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H743xx -c -I../Core/Inc -I../Drivers/BSP/w25qxx -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+arm-none-eabi-gcc "../Core/Src/rtc.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H743xx -c -I../Core/Inc -I../Drivers/BSP/w25qxx -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/rtc.d" -MT"Core/Src/rtc.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/rtc.o"
+../Core/Src/rtc.c: In function 'MX_RTC_Init':
+../Core/Src/rtc.c:38:21: warning: unused variable 'sAlarm' [-Wunused-variable]
+   38 |   RTC_AlarmTypeDef  sAlarm = {0};
+      |                     ^~~~~~
+In file included from ../Core/Src/freertos.c:33:
+../Core/Inc/sound.h:29:9: warning: ISO C99 requires whitespace after the macro name
+   29 | #define S_put-lens  17
+      |         ^~~~~
+../Core/Src/freertos.c: In function 'passwd_verify':
+../Core/Src/freertos.c:141:5: warning: implicit declaration of function 'DF_Play' [-Wimplicit-function-declaration]
+  141 |     DF_Play(S_ready);  //Ready it is OK();
+      |     ^~~~~~~
+../Core/Src/freertos.c: In function 'GUI_1602':
+../Core/Src/freertos.c:287:3: warning: implicit declaration of function 'DF_Volume' [-Wimplicit-function-declaration]
+  287 |   DF_Volume(15);
+      |   ^~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask02':
+../Core/Src/freertos.c:634:21: error: 'hex' undeclared (first use in this function)
+  634 |     sDate.Year  =  (hex) Rx1_Buffer[8]     ;
+      |                     ^~~
+../Core/Src/freertos.c:634:21: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/freertos.c:634:25: error: expected ';' before 'Rx1_Buffer'
+  634 |     sDate.Year  =  (hex) Rx1_Buffer[8]     ;
+      |                         ^~~~~~~~~~~
+      |                         ;
+../Core/Src/freertos.c: In function 'StartTask03':
+../Core/Src/freertos.c:780:15: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  780 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |               ^~~~
+../Core/Src/freertos.c:780:20: warning: implicit declaration of function 'strtok' [-Wimplicit-function-declaration]
+  780 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |                    ^~~~~~
+../Core/Src/freertos.c: In function 'StartTask06':
+../Core/Src/freertos.c:907:4: warning: implicit declaration of function 'W25qxx_EraseSector' [-Wimplicit-function-declaration]
+  907 |    W25qxx_EraseSector(0);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:908:4: warning: implicit declaration of function 'W25qxx_PageProgram' [-Wimplicit-function-declaration]
+  908 |    W25qxx_PageProgram(wdata, 3800, 300);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:910:4: warning: implicit declaration of function 'W25qxx_Read' [-Wimplicit-function-declaration]
+  910 |    W25qxx_Read(rdata, 3800, 300);
+      |    ^~~~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask08':
+../Core/Src/freertos.c:1007:5: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+ 1007 |     printf( "Date 20%d-%d-%d\r\n",sdatestructureget.Year,sdatestructureget.Month, sdatestructureget.Date);
+      |     ^~~~~~
+../Core/Src/freertos.c:1007:5: warning: incompatible implicit declaration of built-in function 'printf'
+../Core/Src/freertos.c:34:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   33 | #include "sound.h"
+  +++ |+#include <stdio.h>
+   34 | //#include "stm32h7xx_hal_rtc.h"
+make: *** [Core/Src/subdir.mk:67: Core/Src/freertos.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+12:54:52 **** Incremental Build of configuration Debug for project 743-6 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H743xx -c -I../Core/Inc -I../Drivers/BSP/w25qxx -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+arm-none-eabi-gcc "../Core/Src/rtc.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H743xx -c -I../Core/Inc -I../Drivers/BSP/w25qxx -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/rtc.d" -MT"Core/Src/rtc.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/rtc.o"
+../Core/Src/rtc.c: In function 'MX_RTC_Init':
+../Core/Src/rtc.c:38:21: warning: unused variable 'sAlarm' [-Wunused-variable]
+   38 |   RTC_AlarmTypeDef  sAlarm = {0};
+      |                     ^~~~~~
+In file included from ../Core/Src/freertos.c:33:
+../Core/Inc/sound.h:29:9: warning: ISO C99 requires whitespace after the macro name
+   29 | #define S_put-lens  17
+      |         ^~~~~
+../Core/Src/freertos.c: In function 'passwd_verify':
+../Core/Src/freertos.c:141:5: warning: implicit declaration of function 'DF_Play' [-Wimplicit-function-declaration]
+  141 |     DF_Play(S_ready);  //Ready it is OK();
+      |     ^~~~~~~
+../Core/Src/freertos.c: In function 'GUI_1602':
+../Core/Src/freertos.c:287:3: warning: implicit declaration of function 'DF_Volume' [-Wimplicit-function-declaration]
+  287 |   DF_Volume(15);
+      |   ^~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask03':
+../Core/Src/freertos.c:780:15: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  780 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |               ^~~~
+../Core/Src/freertos.c:780:20: warning: implicit declaration of function 'strtok' [-Wimplicit-function-declaration]
+  780 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |                    ^~~~~~
+../Core/Src/freertos.c: In function 'StartTask06':
+../Core/Src/freertos.c:907:4: warning: implicit declaration of function 'W25qxx_EraseSector' [-Wimplicit-function-declaration]
+  907 |    W25qxx_EraseSector(0);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:908:4: warning: implicit declaration of function 'W25qxx_PageProgram' [-Wimplicit-function-declaration]
+  908 |    W25qxx_PageProgram(wdata, 3800, 300);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:910:4: warning: implicit declaration of function 'W25qxx_Read' [-Wimplicit-function-declaration]
+  910 |    W25qxx_Read(rdata, 3800, 300);
+      |    ^~~~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask08':
+../Core/Src/freertos.c:1007:5: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+ 1007 |     printf( "Date 20%d-%d-%d\r\n",sdatestructureget.Year,sdatestructureget.Month, sdatestructureget.Date);
+      |     ^~~~~~
+../Core/Src/freertos.c:1007:5: warning: incompatible implicit declaration of built-in function 'printf'
+../Core/Src/freertos.c:34:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   33 | #include "sound.h"
+  +++ |+#include <stdio.h>
+   34 | //#include "stm32h7xx_hal_rtc.h"
+arm-none-eabi-gcc -o "743-6.elf" @"objects.list"   -mcpu=cortex-m7 -T"E:\ARM\743-6\743-6\STM32H743VITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="743-6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 743-6.elf
+ 
+arm-none-eabi-size   743-6.elf 
+arm-none-eabi-objdump -h -S  743-6.elf  > "743-6.list"
+arm-none-eabi-objcopy  -O binary  743-6.elf  "743-6.bin"
+   text	   data	    bss	    dec	    hex	filename
+ 145692	    772	  51092	 197556	  303b4	743-6.elf
+Finished building: default.size.stdout
+ 
+Finished building: 743-6.bin
+ 
+Finished building: 743-6.list
+ 
+13:00:34 **** Incremental Build of configuration Debug for project 743-6 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H743xx -c -I../Core/Inc -I../Drivers/BSP/w25qxx -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+In file included from ../Core/Src/freertos.c:33:
+../Core/Inc/sound.h:29:9: warning: ISO C99 requires whitespace after the macro name
+   29 | #define S_put-lens  17
+      |         ^~~~~
+../Core/Src/freertos.c: In function 'passwd_verify':
+../Core/Src/freertos.c:141:5: warning: implicit declaration of function 'DF_Play' [-Wimplicit-function-declaration]
+  141 |     DF_Play(S_ready);  //Ready it is OK();
+      |     ^~~~~~~
+../Core/Src/freertos.c: In function 'GUI_1602':
+../Core/Src/freertos.c:287:3: warning: implicit declaration of function 'DF_Volume' [-Wimplicit-function-declaration]
+  287 |   DF_Volume(15);
+      |   ^~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask03':
+../Core/Src/freertos.c:780:15: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  780 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |               ^~~~
+../Core/Src/freertos.c:780:20: warning: implicit declaration of function 'strtok' [-Wimplicit-function-declaration]
+  780 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |                    ^~~~~~
+../Core/Src/freertos.c: In function 'StartTask06':
+../Core/Src/freertos.c:907:4: warning: implicit declaration of function 'W25qxx_EraseSector' [-Wimplicit-function-declaration]
+  907 |    W25qxx_EraseSector(0);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:908:4: warning: implicit declaration of function 'W25qxx_PageProgram' [-Wimplicit-function-declaration]
+  908 |    W25qxx_PageProgram(wdata, 3800, 300);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:910:4: warning: implicit declaration of function 'W25qxx_Read' [-Wimplicit-function-declaration]
+  910 |    W25qxx_Read(rdata, 3800, 300);
+      |    ^~~~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask08':
+../Core/Src/freertos.c:1007:5: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+ 1007 |     printf( "Date 20%d-%d-%d\r\n",sdatestructureget.Year,sdatestructureget.Month, sdatestructureget.Date);
+      |     ^~~~~~
+../Core/Src/freertos.c:1007:5: warning: incompatible implicit declaration of built-in function 'printf'
+../Core/Src/freertos.c:34:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   33 | #include "sound.h"
+  +++ |+#include <stdio.h>
+   34 | //#include "stm32h7xx_hal_rtc.h"
+arm-none-eabi-gcc -o "743-6.elf" @"objects.list"   -mcpu=cortex-m7 -T"E:\ARM\743-6\743-6\STM32H743VITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="743-6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 743-6.elf
+ 
+arm-none-eabi-size   743-6.elf 
+arm-none-eabi-objdump -h -S  743-6.elf  > "743-6.list"
+arm-none-eabi-objcopy  -O binary  743-6.elf  "743-6.bin"
+   text	   data	    bss	    dec	    hex	filename
+ 145740	    772	  51092	 197604	  303e4	743-6.elf
+Finished building: default.size.stdout
+ 
+Finished building: 743-6.bin
+ 
+Finished building: 743-6.list
+ 
+13:02:43 **** Incremental Build of configuration Debug for project 743-6 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H743xx -c -I../Core/Inc -I../Drivers/BSP/w25qxx -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+In file included from ../Core/Src/freertos.c:33:
+../Core/Inc/sound.h:29:9: warning: ISO C99 requires whitespace after the macro name
+   29 | #define S_put-lens  17
+      |         ^~~~~
+../Core/Src/freertos.c: In function 'passwd_verify':
+../Core/Src/freertos.c:141:5: warning: implicit declaration of function 'DF_Play' [-Wimplicit-function-declaration]
+  141 |     DF_Play(S_ready);  //Ready it is OK();
+      |     ^~~~~~~
+../Core/Src/freertos.c: In function 'GUI_1602':
+../Core/Src/freertos.c:287:3: warning: implicit declaration of function 'DF_Volume' [-Wimplicit-function-declaration]
+  287 |   DF_Volume(15);
+      |   ^~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask03':
+../Core/Src/freertos.c:780:15: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  780 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |               ^~~~
+../Core/Src/freertos.c:780:20: warning: implicit declaration of function 'strtok' [-Wimplicit-function-declaration]
+  780 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |                    ^~~~~~
+../Core/Src/freertos.c: In function 'StartTask06':
+../Core/Src/freertos.c:907:4: warning: implicit declaration of function 'W25qxx_EraseSector' [-Wimplicit-function-declaration]
+  907 |    W25qxx_EraseSector(0);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:908:4: warning: implicit declaration of function 'W25qxx_PageProgram' [-Wimplicit-function-declaration]
+  908 |    W25qxx_PageProgram(wdata, 3800, 300);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:910:4: warning: implicit declaration of function 'W25qxx_Read' [-Wimplicit-function-declaration]
+  910 |    W25qxx_Read(rdata, 3800, 300);
+      |    ^~~~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask08':
+../Core/Src/freertos.c:1007:5: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+ 1007 |     printf( "Date 20%d-%d-%d\r\n",sdatestructureget.Year,sdatestructureget.Month, sdatestructureget.Date);
+      |     ^~~~~~
+../Core/Src/freertos.c:1007:5: warning: incompatible implicit declaration of built-in function 'printf'
+../Core/Src/freertos.c:34:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   33 | #include "sound.h"
+  +++ |+#include <stdio.h>
+   34 | //#include "stm32h7xx_hal_rtc.h"
+arm-none-eabi-gcc -o "743-6.elf" @"objects.list"   -mcpu=cortex-m7 -T"E:\ARM\743-6\743-6\STM32H743VITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="743-6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 743-6.elf
+ 
+arm-none-eabi-size   743-6.elf 
+arm-none-eabi-objdump -h -S  743-6.elf  > "743-6.list"
+arm-none-eabi-objcopy  -O binary  743-6.elf  "743-6.bin"
+   text	   data	    bss	    dec	    hex	filename
+ 145884	    772	  51092	 197748	  30474	743-6.elf
+Finished building: default.size.stdout
+ 
+Finished building: 743-6.bin
+ 
+Finished building: 743-6.list
+ 
+13:14:02 **** Incremental Build of configuration Debug for project 743-6 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H743xx -c -I../Core/Inc -I../Drivers/BSP/w25qxx -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+In file included from ../Core/Src/freertos.c:33:
+../Core/Inc/sound.h:29:9: warning: ISO C99 requires whitespace after the macro name
+   29 | #define S_put-lens  17
+      |         ^~~~~
+../Core/Src/freertos.c: In function 'passwd_verify':
+../Core/Src/freertos.c:141:5: warning: implicit declaration of function 'DF_Play' [-Wimplicit-function-declaration]
+  141 |     DF_Play(S_ready);  //Ready it is OK();
+      |     ^~~~~~~
+../Core/Src/freertos.c: In function 'GUI_1602':
+../Core/Src/freertos.c:287:3: warning: implicit declaration of function 'DF_Volume' [-Wimplicit-function-declaration]
+  287 |   DF_Volume(15);
+      |   ^~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask03':
+../Core/Src/freertos.c:780:15: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  780 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |               ^~~~
+../Core/Src/freertos.c:780:20: warning: implicit declaration of function 'strtok' [-Wimplicit-function-declaration]
+  780 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |                    ^~~~~~
+../Core/Src/freertos.c: In function 'StartTask06':
+../Core/Src/freertos.c:907:4: warning: implicit declaration of function 'W25qxx_EraseSector' [-Wimplicit-function-declaration]
+  907 |    W25qxx_EraseSector(0);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:908:4: warning: implicit declaration of function 'W25qxx_PageProgram' [-Wimplicit-function-declaration]
+  908 |    W25qxx_PageProgram(wdata, 3800, 300);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:910:4: warning: implicit declaration of function 'W25qxx_Read' [-Wimplicit-function-declaration]
+  910 |    W25qxx_Read(rdata, 3800, 300);
+      |    ^~~~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask08':
+../Core/Src/freertos.c:1007:5: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+ 1007 |     printf( "Date 20%d-%d-%d\r\n",sdatestructureget.Year,sdatestructureget.Month, sdatestructureget.Date);
+      |     ^~~~~~
+../Core/Src/freertos.c:1007:5: warning: incompatible implicit declaration of built-in function 'printf'
+../Core/Src/freertos.c:34:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   33 | #include "sound.h"
+  +++ |+#include <stdio.h>
+   34 | //#include "stm32h7xx_hal_rtc.h"
+arm-none-eabi-gcc -o "743-6.elf" @"objects.list"   -mcpu=cortex-m7 -T"E:\ARM\743-6\743-6\STM32H743VITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="743-6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 743-6.elf
+ 
+arm-none-eabi-size   743-6.elf 
+arm-none-eabi-objdump -h -S  743-6.elf  > "743-6.list"
+arm-none-eabi-objcopy  -O binary  743-6.elf  "743-6.bin"
+   text	   data	    bss	    dec	    hex	filename
+ 145884	    772	  51092	 197748	  30474	743-6.elf
+Finished building: default.size.stdout
+ 
+Finished building: 743-6.bin
+ 
+Finished building: 743-6.list
+ 
+13:15:27 **** Incremental Build of configuration Debug for project 743-6 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H743xx -c -I../Core/Inc -I../Drivers/BSP/w25qxx -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+In file included from ../Core/Src/freertos.c:33:
+../Core/Inc/sound.h:29:9: warning: ISO C99 requires whitespace after the macro name
+   29 | #define S_put-lens  17
+      |         ^~~~~
+../Core/Src/freertos.c: In function 'passwd_verify':
+../Core/Src/freertos.c:141:5: warning: implicit declaration of function 'DF_Play' [-Wimplicit-function-declaration]
+  141 |     DF_Play(S_ready);  //Ready it is OK();
+      |     ^~~~~~~
+../Core/Src/freertos.c: In function 'GUI_1602':
+../Core/Src/freertos.c:287:3: warning: implicit declaration of function 'DF_Volume' [-Wimplicit-function-declaration]
+  287 |   DF_Volume(15);
+      |   ^~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask03':
+../Core/Src/freertos.c:780:15: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  780 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |               ^~~~
+../Core/Src/freertos.c:780:20: warning: implicit declaration of function 'strtok' [-Wimplicit-function-declaration]
+  780 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |                    ^~~~~~
+../Core/Src/freertos.c: In function 'StartTask06':
+../Core/Src/freertos.c:907:4: warning: implicit declaration of function 'W25qxx_EraseSector' [-Wimplicit-function-declaration]
+  907 |    W25qxx_EraseSector(0);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:908:4: warning: implicit declaration of function 'W25qxx_PageProgram' [-Wimplicit-function-declaration]
+  908 |    W25qxx_PageProgram(wdata, 3800, 300);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:910:4: warning: implicit declaration of function 'W25qxx_Read' [-Wimplicit-function-declaration]
+  910 |    W25qxx_Read(rdata, 3800, 300);
+      |    ^~~~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask08':
+../Core/Src/freertos.c:1007:5: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+ 1007 |     printf( "Date 20%d-%d-%d\r\n",sdatestructureget.Year,sdatestructureget.Month, sdatestructureget.Date);
+      |     ^~~~~~
+../Core/Src/freertos.c:1007:5: warning: incompatible implicit declaration of built-in function 'printf'
+../Core/Src/freertos.c:34:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   33 | #include "sound.h"
+  +++ |+#include <stdio.h>
+   34 | //#include "stm32h7xx_hal_rtc.h"
+arm-none-eabi-gcc -o "743-6.elf" @"objects.list"   -mcpu=cortex-m7 -T"E:\ARM\743-6\743-6\STM32H743VITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="743-6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 743-6.elf
+ 
+arm-none-eabi-size   743-6.elf 
+arm-none-eabi-objdump -h -S  743-6.elf  > "743-6.list"
+arm-none-eabi-objcopy  -O binary  743-6.elf  "743-6.bin"
+   text	   data	    bss	    dec	    hex	filename
+ 145884	    772	  51092	 197748	  30474	743-6.elf
+Finished building: default.size.stdout
+ 
+Finished building: 743-6.bin
+ 
+Finished building: 743-6.list
+ 
+13:17:18 **** Incremental Build of configuration Debug for project 743-6 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H743xx -c -I../Core/Inc -I../Drivers/BSP/w25qxx -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+In file included from ../Core/Src/freertos.c:33:
+../Core/Inc/sound.h:29:9: warning: ISO C99 requires whitespace after the macro name
+   29 | #define S_put-lens  17
+      |         ^~~~~
+../Core/Src/freertos.c: In function 'passwd_verify':
+../Core/Src/freertos.c:141:5: warning: implicit declaration of function 'DF_Play' [-Wimplicit-function-declaration]
+  141 |     DF_Play(S_ready);  //Ready it is OK();
+      |     ^~~~~~~
+../Core/Src/freertos.c: In function 'GUI_1602':
+../Core/Src/freertos.c:287:3: warning: implicit declaration of function 'DF_Volume' [-Wimplicit-function-declaration]
+  287 |   DF_Volume(15);
+      |   ^~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask03':
+../Core/Src/freertos.c:780:15: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  780 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |               ^~~~
+../Core/Src/freertos.c:780:20: warning: implicit declaration of function 'strtok' [-Wimplicit-function-declaration]
+  780 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |                    ^~~~~~
+../Core/Src/freertos.c: In function 'StartTask06':
+../Core/Src/freertos.c:907:4: warning: implicit declaration of function 'W25qxx_EraseSector' [-Wimplicit-function-declaration]
+  907 |    W25qxx_EraseSector(0);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:908:4: warning: implicit declaration of function 'W25qxx_PageProgram' [-Wimplicit-function-declaration]
+  908 |    W25qxx_PageProgram(wdata, 3800, 300);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:910:4: warning: implicit declaration of function 'W25qxx_Read' [-Wimplicit-function-declaration]
+  910 |    W25qxx_Read(rdata, 3800, 300);
+      |    ^~~~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask08':
+../Core/Src/freertos.c:1007:5: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+ 1007 |     printf( "Date 20%d-%d-%d\r\n",sdatestructureget.Year,sdatestructureget.Month, sdatestructureget.Date);
+      |     ^~~~~~
+../Core/Src/freertos.c:1007:5: warning: incompatible implicit declaration of built-in function 'printf'
+../Core/Src/freertos.c:34:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   33 | #include "sound.h"
+  +++ |+#include <stdio.h>
+   34 | //#include "stm32h7xx_hal_rtc.h"
+arm-none-eabi-gcc -o "743-6.elf" @"objects.list"   -mcpu=cortex-m7 -T"E:\ARM\743-6\743-6\STM32H743VITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="743-6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 743-6.elf
+ 
+arm-none-eabi-size   743-6.elf 
+arm-none-eabi-objdump -h -S  743-6.elf  > "743-6.list"
+arm-none-eabi-objcopy  -O binary  743-6.elf  "743-6.bin"
+   text	   data	    bss	    dec	    hex	filename
+ 145884	    772	  51092	 197748	  30474	743-6.elf
+Finished building: default.size.stdout
+ 
+Finished building: 743-6.bin
+ 
+Finished building: 743-6.list
+ 
+13:23:08 **** Incremental Build of configuration Debug for project 743-6 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H743xx -c -I../Core/Inc -I../Drivers/BSP/w25qxx -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+In file included from ../Core/Src/freertos.c:33:
+../Core/Inc/sound.h:29:9: warning: ISO C99 requires whitespace after the macro name
+   29 | #define S_put-lens  17
+      |         ^~~~~
+../Core/Src/freertos.c: In function 'passwd_verify':
+../Core/Src/freertos.c:141:5: warning: implicit declaration of function 'DF_Play' [-Wimplicit-function-declaration]
+  141 |     DF_Play(S_ready);  //Ready it is OK();
+      |     ^~~~~~~
+../Core/Src/freertos.c: In function 'GUI_1602':
+../Core/Src/freertos.c:287:3: warning: implicit declaration of function 'DF_Volume' [-Wimplicit-function-declaration]
+  287 |   DF_Volume(15);
+      |   ^~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask03':
+../Core/Src/freertos.c:780:15: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  780 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |               ^~~~
+../Core/Src/freertos.c:780:20: warning: implicit declaration of function 'strtok' [-Wimplicit-function-declaration]
+  780 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |                    ^~~~~~
+../Core/Src/freertos.c: In function 'StartTask06':
+../Core/Src/freertos.c:907:4: warning: implicit declaration of function 'W25qxx_EraseSector' [-Wimplicit-function-declaration]
+  907 |    W25qxx_EraseSector(0);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:908:4: warning: implicit declaration of function 'W25qxx_PageProgram' [-Wimplicit-function-declaration]
+  908 |    W25qxx_PageProgram(wdata, 3800, 300);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:910:4: warning: implicit declaration of function 'W25qxx_Read' [-Wimplicit-function-declaration]
+  910 |    W25qxx_Read(rdata, 3800, 300);
+      |    ^~~~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask08':
+../Core/Src/freertos.c:1007:5: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+ 1007 |     printf( "Date 20%d-%d-%d\r\n",sdatestructureget.Year,sdatestructureget.Month, sdatestructureget.Date);
+      |     ^~~~~~
+../Core/Src/freertos.c:1007:5: warning: incompatible implicit declaration of built-in function 'printf'
+../Core/Src/freertos.c:34:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   33 | #include "sound.h"
+  +++ |+#include <stdio.h>
+   34 | //#include "stm32h7xx_hal_rtc.h"
+arm-none-eabi-gcc -o "743-6.elf" @"objects.list"   -mcpu=cortex-m7 -T"E:\ARM\743-6\743-6\STM32H743VITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="743-6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 743-6.elf
+ 
+arm-none-eabi-size   743-6.elf 
+arm-none-eabi-objdump -h -S  743-6.elf  > "743-6.list"
+arm-none-eabi-objcopy  -O binary  743-6.elf  "743-6.bin"
+   text	   data	    bss	    dec	    hex	filename
+ 145900	    772	  51092	 197764	  30484	743-6.elf
+Finished building: default.size.stdout
+ 
+Finished building: 743-6.bin
+ 
+Finished building: 743-6.list
+ 
+13:26:12 **** Incremental Build of configuration Debug for project 743-6 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H743xx -c -I../Core/Inc -I../Drivers/BSP/w25qxx -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+In file included from ../Core/Src/freertos.c:33:
+../Core/Inc/sound.h:29:9: warning: ISO C99 requires whitespace after the macro name
+   29 | #define S_put-lens  17
+      |         ^~~~~
+../Core/Src/freertos.c: In function 'passwd_verify':
+../Core/Src/freertos.c:141:5: warning: implicit declaration of function 'DF_Play' [-Wimplicit-function-declaration]
+  141 |     DF_Play(S_ready);  //Ready it is OK();
+      |     ^~~~~~~
+../Core/Src/freertos.c: In function 'GUI_1602':
+../Core/Src/freertos.c:287:3: warning: implicit declaration of function 'DF_Volume' [-Wimplicit-function-declaration]
+  287 |   DF_Volume(15);
+      |   ^~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask03':
+../Core/Src/freertos.c:780:15: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  780 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |               ^~~~
+../Core/Src/freertos.c:780:20: warning: implicit declaration of function 'strtok' [-Wimplicit-function-declaration]
+  780 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |                    ^~~~~~
+../Core/Src/freertos.c: In function 'StartTask06':
+../Core/Src/freertos.c:907:4: warning: implicit declaration of function 'W25qxx_EraseSector' [-Wimplicit-function-declaration]
+  907 |    W25qxx_EraseSector(0);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:908:4: warning: implicit declaration of function 'W25qxx_PageProgram' [-Wimplicit-function-declaration]
+  908 |    W25qxx_PageProgram(wdata, 3800, 300);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:910:4: warning: implicit declaration of function 'W25qxx_Read' [-Wimplicit-function-declaration]
+  910 |    W25qxx_Read(rdata, 3800, 300);
+      |    ^~~~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask08':
+../Core/Src/freertos.c:1007:5: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+ 1007 |     printf( "Date 20%d-%d-%d\r\n",sdatestructureget.Year,sdatestructureget.Month, sdatestructureget.Date);
+      |     ^~~~~~
+../Core/Src/freertos.c:1007:5: warning: incompatible implicit declaration of built-in function 'printf'
+../Core/Src/freertos.c:34:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   33 | #include "sound.h"
+  +++ |+#include <stdio.h>
+   34 | //#include "stm32h7xx_hal_rtc.h"
+arm-none-eabi-gcc -o "743-6.elf" @"objects.list"   -mcpu=cortex-m7 -T"E:\ARM\743-6\743-6\STM32H743VITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="743-6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 743-6.elf
+ 
+arm-none-eabi-size   743-6.elf 
+arm-none-eabi-objdump -h -S  743-6.elf  > "743-6.list"
+arm-none-eabi-objcopy  -O binary  743-6.elf  "743-6.bin"
+   text	   data	    bss	    dec	    hex	filename
+ 145884	    772	  51092	 197748	  30474	743-6.elf
+Finished building: default.size.stdout
+ 
+Finished building: 743-6.bin
+ 
+Finished building: 743-6.list
+ 
+13:28:20 **** Incremental Build of configuration Debug for project 743-6 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H743xx -c -I../Core/Inc -I../Drivers/BSP/w25qxx -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+In file included from ../Core/Src/freertos.c:33:
+../Core/Inc/sound.h:29:9: warning: ISO C99 requires whitespace after the macro name
+   29 | #define S_put-lens  17
+      |         ^~~~~
+../Core/Src/freertos.c: In function 'passwd_verify':
+../Core/Src/freertos.c:141:5: warning: implicit declaration of function 'DF_Play' [-Wimplicit-function-declaration]
+  141 |     DF_Play(S_ready);  //Ready it is OK();
+      |     ^~~~~~~
+../Core/Src/freertos.c: In function 'GUI_1602':
+../Core/Src/freertos.c:287:3: warning: implicit declaration of function 'DF_Volume' [-Wimplicit-function-declaration]
+  287 |   DF_Volume(15);
+      |   ^~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask02':
+../Core/Src/freertos.c:634:46: warning: suggest parentheses around '+' inside '<<' [-Wparentheses]
+  634 |     sDate.Year  =    (Rx1_Buffer[8]/10) <<4  + (Rx1_Buffer[8]%10)     ;
+      |                                           ~~~^~~~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:636:45: warning: suggest parentheses around '+' inside '<<' [-Wparentheses]
+  636 |     sDate.Date  =   (Rx1_Buffer[16]/10) <<4 + (Rx1_Buffer[16]%10) ;
+      |                                           ~~^~~~~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:642:46: warning: suggest parentheses around '+' inside '<<' [-Wparentheses]
+  642 |      sTime.Hours   = (Rx1_Buffer[20]/10) <<4 + (Rx1_Buffer[20]%10)  ;
+      |                                            ~~^~~~~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:643:46: warning: suggest parentheses around '+' inside '<<' [-Wparentheses]
+  643 |      sTime.Minutes = (Rx1_Buffer[24]/10) <<4 + (Rx1_Buffer[24]%10) ;
+      |                                            ~~^~~~~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask03':
+../Core/Src/freertos.c:780:15: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  780 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |               ^~~~
+../Core/Src/freertos.c:780:20: warning: implicit declaration of function 'strtok' [-Wimplicit-function-declaration]
+  780 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |                    ^~~~~~
+../Core/Src/freertos.c: In function 'StartTask06':
+../Core/Src/freertos.c:907:4: warning: implicit declaration of function 'W25qxx_EraseSector' [-Wimplicit-function-declaration]
+  907 |    W25qxx_EraseSector(0);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:908:4: warning: implicit declaration of function 'W25qxx_PageProgram' [-Wimplicit-function-declaration]
+  908 |    W25qxx_PageProgram(wdata, 3800, 300);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:910:4: warning: implicit declaration of function 'W25qxx_Read' [-Wimplicit-function-declaration]
+  910 |    W25qxx_Read(rdata, 3800, 300);
+      |    ^~~~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask08':
+../Core/Src/freertos.c:1007:5: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+ 1007 |     printf( "Date 20%d-%d-%d\r\n",sdatestructureget.Year,sdatestructureget.Month, sdatestructureget.Date);
+      |     ^~~~~~
+../Core/Src/freertos.c:1007:5: warning: incompatible implicit declaration of built-in function 'printf'
+../Core/Src/freertos.c:34:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   33 | #include "sound.h"
+  +++ |+#include <stdio.h>
+   34 | //#include "stm32h7xx_hal_rtc.h"
+arm-none-eabi-gcc -o "743-6.elf" @"objects.list"   -mcpu=cortex-m7 -T"E:\ARM\743-6\743-6\STM32H743VITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="743-6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 743-6.elf
+ 
+arm-none-eabi-size   743-6.elf 
+arm-none-eabi-objdump -h -S  743-6.elf  > "743-6.list"
+arm-none-eabi-objcopy  -O binary  743-6.elf  "743-6.bin"
+   text	   data	    bss	    dec	    hex	filename
+ 145868	    772	  51092	 197732	  30464	743-6.elf
+Finished building: default.size.stdout
+ 
+Finished building: 743-6.bin
+ 
+Finished building: 743-6.list
+ 
+13:29:55 **** Incremental Build of configuration Debug for project 743-6 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H743xx -c -I../Core/Inc -I../Drivers/BSP/w25qxx -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+In file included from ../Core/Src/freertos.c:33:
+../Core/Inc/sound.h:29:9: warning: ISO C99 requires whitespace after the macro name
+   29 | #define S_put-lens  17
+      |         ^~~~~
+../Core/Src/freertos.c: In function 'passwd_verify':
+../Core/Src/freertos.c:141:5: warning: implicit declaration of function 'DF_Play' [-Wimplicit-function-declaration]
+  141 |     DF_Play(S_ready);  //Ready it is OK();
+      |     ^~~~~~~
+../Core/Src/freertos.c: In function 'GUI_1602':
+../Core/Src/freertos.c:287:3: warning: implicit declaration of function 'DF_Volume' [-Wimplicit-function-declaration]
+  287 |   DF_Volume(15);
+      |   ^~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask03':
+../Core/Src/freertos.c:780:15: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  780 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |               ^~~~
+../Core/Src/freertos.c:780:20: warning: implicit declaration of function 'strtok' [-Wimplicit-function-declaration]
+  780 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |                    ^~~~~~
+../Core/Src/freertos.c: In function 'StartTask06':
+../Core/Src/freertos.c:907:4: warning: implicit declaration of function 'W25qxx_EraseSector' [-Wimplicit-function-declaration]
+  907 |    W25qxx_EraseSector(0);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:908:4: warning: implicit declaration of function 'W25qxx_PageProgram' [-Wimplicit-function-declaration]
+  908 |    W25qxx_PageProgram(wdata, 3800, 300);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:910:4: warning: implicit declaration of function 'W25qxx_Read' [-Wimplicit-function-declaration]
+  910 |    W25qxx_Read(rdata, 3800, 300);
+      |    ^~~~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask08':
+../Core/Src/freertos.c:1007:5: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+ 1007 |     printf( "Date 20%d-%d-%d\r\n",sdatestructureget.Year,sdatestructureget.Month, sdatestructureget.Date);
+      |     ^~~~~~
+../Core/Src/freertos.c:1007:5: warning: incompatible implicit declaration of built-in function 'printf'
+../Core/Src/freertos.c:34:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   33 | #include "sound.h"
+  +++ |+#include <stdio.h>
+   34 | //#include "stm32h7xx_hal_rtc.h"
+arm-none-eabi-gcc -o "743-6.elf" @"objects.list"   -mcpu=cortex-m7 -T"E:\ARM\743-6\743-6\STM32H743VITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="743-6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 743-6.elf
+ 
+arm-none-eabi-size   743-6.elf 
+arm-none-eabi-objdump -h -S  743-6.elf  > "743-6.list"
+arm-none-eabi-objcopy  -O binary  743-6.elf  "743-6.bin"
+   text	   data	    bss	    dec	    hex	filename
+ 145884	    772	  51092	 197748	  30474	743-6.elf
+Finished building: default.size.stdout
+ 
+Finished building: 743-6.bin
+ 
+Finished building: 743-6.list
+ 
+13:35:47 **** Incremental Build of configuration Debug for project 743-6 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H743xx -c -I../Core/Inc -I../Drivers/BSP/w25qxx -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+In file included from ../Core/Src/freertos.c:33:
+../Core/Inc/sound.h:29:9: warning: ISO C99 requires whitespace after the macro name
+   29 | #define S_put-lens  17
+      |         ^~~~~
+../Core/Src/freertos.c: In function 'passwd_verify':
+../Core/Src/freertos.c:141:5: warning: implicit declaration of function 'DF_Play' [-Wimplicit-function-declaration]
+  141 |     DF_Play(S_ready);  //Ready it is OK();
+      |     ^~~~~~~
+../Core/Src/freertos.c: In function 'GUI_1602':
+../Core/Src/freertos.c:287:3: warning: implicit declaration of function 'DF_Volume' [-Wimplicit-function-declaration]
+  287 |   DF_Volume(15);
+      |   ^~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask03':
+../Core/Src/freertos.c:780:15: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  780 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |               ^~~~
+../Core/Src/freertos.c:780:20: warning: implicit declaration of function 'strtok' [-Wimplicit-function-declaration]
+  780 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |                    ^~~~~~
+../Core/Src/freertos.c: In function 'StartTask06':
+../Core/Src/freertos.c:907:4: warning: implicit declaration of function 'W25qxx_EraseSector' [-Wimplicit-function-declaration]
+  907 |    W25qxx_EraseSector(0);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:908:4: warning: implicit declaration of function 'W25qxx_PageProgram' [-Wimplicit-function-declaration]
+  908 |    W25qxx_PageProgram(wdata, 3800, 300);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:910:4: warning: implicit declaration of function 'W25qxx_Read' [-Wimplicit-function-declaration]
+  910 |    W25qxx_Read(rdata, 3800, 300);
+      |    ^~~~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask08':
+../Core/Src/freertos.c:1007:5: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+ 1007 |     printf( "Date 20%d-%d-%d\r\n",sdatestructureget.Year,sdatestructureget.Month, sdatestructureget.Date);
+      |     ^~~~~~
+../Core/Src/freertos.c:1007:5: warning: incompatible implicit declaration of built-in function 'printf'
+../Core/Src/freertos.c:34:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   33 | #include "sound.h"
+  +++ |+#include <stdio.h>
+   34 | //#include "stm32h7xx_hal_rtc.h"
+arm-none-eabi-gcc -o "743-6.elf" @"objects.list"   -mcpu=cortex-m7 -T"E:\ARM\743-6\743-6\STM32H743VITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="743-6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 743-6.elf
+ 
+arm-none-eabi-size   743-6.elf 
+arm-none-eabi-objdump -h -S  743-6.elf  > "743-6.list"
+arm-none-eabi-objcopy  -O binary  743-6.elf  "743-6.bin"
+   text	   data	    bss	    dec	    hex	filename
+ 145836	    772	  51092	 197700	  30444	743-6.elf
+Finished building: default.size.stdout
+Finished building: 743-6.bin
+ 
+ 
+Finished building: 743-6.list
+ 
+13:36:10 **** Incremental Build of configuration Debug for project 743-6 ****
+make -j4 all 
+arm-none-eabi-size   743-6.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 145836	    772	  51092	 197700	  30444	743-6.elf
+Finished building: default.size.stdout
+ 
+13:40:12 **** Incremental Build of configuration Debug for project 743-6 ****
+make -j4 all 
+arm-none-eabi-size   743-6.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 145836	    772	  51092	 197700	  30444	743-6.elf
+Finished building: default.size.stdout
+ 
+13:58:53 **** Incremental Build of configuration Debug for project 743-6 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H743xx -c -I../Core/Inc -I../Drivers/BSP/w25qxx -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+In file included from ../Core/Src/freertos.c:33:
+../Core/Inc/sound.h:29:9: warning: ISO C99 requires whitespace after the macro name
+   29 | #define S_put-lens  17
+      |         ^~~~~
+../Core/Src/freertos.c: In function 'passwd_verify':
+../Core/Src/freertos.c:141:5: warning: implicit declaration of function 'DF_Play' [-Wimplicit-function-declaration]
+  141 |     DF_Play(S_ready);  //Ready it is OK();
+      |     ^~~~~~~
+../Core/Src/freertos.c: In function 'GUI_1602':
+../Core/Src/freertos.c:287:3: warning: implicit declaration of function 'DF_Volume' [-Wimplicit-function-declaration]
+  287 |   DF_Volume(15);
+      |   ^~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask03':
+../Core/Src/freertos.c:781:15: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  781 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |               ^~~~
+../Core/Src/freertos.c:781:20: warning: implicit declaration of function 'strtok' [-Wimplicit-function-declaration]
+  781 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |                    ^~~~~~
+../Core/Src/freertos.c: In function 'StartTask06':
+../Core/Src/freertos.c:908:4: warning: implicit declaration of function 'W25qxx_EraseSector' [-Wimplicit-function-declaration]
+  908 |    W25qxx_EraseSector(0);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:909:4: warning: implicit declaration of function 'W25qxx_PageProgram' [-Wimplicit-function-declaration]
+  909 |    W25qxx_PageProgram(wdata, 3800, 300);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:911:4: warning: implicit declaration of function 'W25qxx_Read' [-Wimplicit-function-declaration]
+  911 |    W25qxx_Read(rdata, 3800, 300);
+      |    ^~~~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask08':
+../Core/Src/freertos.c:1008:5: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+ 1008 |     printf( "Date 20%d-%d-%d\r\n",sdatestructureget.Year,sdatestructureget.Month, sdatestructureget.Date);
+      |     ^~~~~~
+../Core/Src/freertos.c:1008:5: warning: incompatible implicit declaration of built-in function 'printf'
+../Core/Src/freertos.c:34:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   33 | #include "sound.h"
+  +++ |+#include <stdio.h>
+   34 | //#include "stm32h7xx_hal_rtc.h"
+arm-none-eabi-gcc -o "743-6.elf" @"objects.list"   -mcpu=cortex-m7 -T"E:\ARM\743-6\743-6\STM32H743VITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="743-6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 743-6.elf
+ 
+arm-none-eabi-size   743-6.elf 
+arm-none-eabi-objdump -h -S  743-6.elf  > "743-6.list"
+arm-none-eabi-objcopy  -O binary  743-6.elf  "743-6.bin"
+   text	   data	    bss	    dec	    hex	filename
+ 145900	    772	  51092	 197764	  30484	743-6.elf
+Finished building: default.size.stdout
+ 
+Finished building: 743-6.bin
+ 
+Finished building: 743-6.list
+ 
+14:03:22 **** Incremental Build of configuration Debug for project 743-6 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H743xx -c -I../Core/Inc -I../Drivers/BSP/w25qxx -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+In file included from ../Core/Src/freertos.c:33:
+../Core/Inc/sound.h:29:9: warning: ISO C99 requires whitespace after the macro name
+   29 | #define S_put-lens  17
+      |         ^~~~~
+../Core/Src/freertos.c: In function 'passwd_verify':
+../Core/Src/freertos.c:141:5: warning: implicit declaration of function 'DF_Play' [-Wimplicit-function-declaration]
+  141 |     DF_Play(S_ready);  //Ready it is OK();
+      |     ^~~~~~~
+../Core/Src/freertos.c: In function 'GUI_1602':
+../Core/Src/freertos.c:287:3: warning: implicit declaration of function 'DF_Volume' [-Wimplicit-function-declaration]
+  287 |   DF_Volume(15);
+      |   ^~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask03':
+../Core/Src/freertos.c:781:15: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  781 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |               ^~~~
+../Core/Src/freertos.c:781:20: warning: implicit declaration of function 'strtok' [-Wimplicit-function-declaration]
+  781 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |                    ^~~~~~
+../Core/Src/freertos.c: In function 'StartTask06':
+../Core/Src/freertos.c:908:4: warning: implicit declaration of function 'W25qxx_EraseSector' [-Wimplicit-function-declaration]
+  908 |    W25qxx_EraseSector(0);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:909:4: warning: implicit declaration of function 'W25qxx_PageProgram' [-Wimplicit-function-declaration]
+  909 |    W25qxx_PageProgram(wdata, 3800, 300);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:911:4: warning: implicit declaration of function 'W25qxx_Read' [-Wimplicit-function-declaration]
+  911 |    W25qxx_Read(rdata, 3800, 300);
+      |    ^~~~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask08':
+../Core/Src/freertos.c:1008:5: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+ 1008 |     printf( "Date 20%d-%d-%d\r\n",sdatestructureget.Year,sdatestructureget.Month, sdatestructureget.Date);
+      |     ^~~~~~
+../Core/Src/freertos.c:1008:5: warning: incompatible implicit declaration of built-in function 'printf'
+../Core/Src/freertos.c:34:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   33 | #include "sound.h"
+  +++ |+#include <stdio.h>
+   34 | //#include "stm32h7xx_hal_rtc.h"
+arm-none-eabi-gcc -o "743-6.elf" @"objects.list"   -mcpu=cortex-m7 -T"E:\ARM\743-6\743-6\STM32H743VITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="743-6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 743-6.elf
+ 
+arm-none-eabi-size   743-6.elf 
+arm-none-eabi-objdump -h -S  743-6.elf  > "743-6.list"
+arm-none-eabi-objcopy  -O binary  743-6.elf  "743-6.bin"
+   text	   data	    bss	    dec	    hex	filename
+ 145900	    772	  51092	 197764	  30484	743-6.elf
+Finished building: default.size.stdout
+ 
+Finished building: 743-6.bin
+ 
+Finished building: 743-6.list
+ 
+14:23:03 **** Incremental Build of configuration Debug for project 743-6 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H743xx -c -I../Core/Inc -I../Drivers/BSP/w25qxx -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+In file included from ../Core/Src/freertos.c:33:
+../Core/Inc/sound.h:29:9: warning: ISO C99 requires whitespace after the macro name
+   29 | #define S_put-lens  17
+      |         ^~~~~
+../Core/Src/freertos.c: In function 'passwd_verify':
+../Core/Src/freertos.c:141:5: warning: implicit declaration of function 'DF_Play' [-Wimplicit-function-declaration]
+  141 |     DF_Play(S_ready);  //Ready it is OK();
+      |     ^~~~~~~
+../Core/Src/freertos.c: In function 'GUI_1602':
+../Core/Src/freertos.c:287:3: warning: implicit declaration of function 'DF_Volume' [-Wimplicit-function-declaration]
+  287 |   DF_Volume(15);
+      |   ^~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask03':
+../Core/Src/freertos.c:781:15: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  781 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |               ^~~~
+../Core/Src/freertos.c:781:20: warning: implicit declaration of function 'strtok' [-Wimplicit-function-declaration]
+  781 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |                    ^~~~~~
+../Core/Src/freertos.c: In function 'StartTask06':
+../Core/Src/freertos.c:908:4: warning: implicit declaration of function 'W25qxx_EraseSector' [-Wimplicit-function-declaration]
+  908 |    W25qxx_EraseSector(0);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:909:4: warning: implicit declaration of function 'W25qxx_PageProgram' [-Wimplicit-function-declaration]
+  909 |    W25qxx_PageProgram(wdata, 3800, 300);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:911:4: warning: implicit declaration of function 'W25qxx_Read' [-Wimplicit-function-declaration]
+  911 |    W25qxx_Read(rdata, 3800, 300);
+      |    ^~~~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask08':
+../Core/Src/freertos.c:1008:5: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+ 1008 |     printf( "Date 20%d-%d-%d\r\n",sdatestructureget.Year,sdatestructureget.Month, sdatestructureget.Date);
+      |     ^~~~~~
+../Core/Src/freertos.c:1008:5: warning: incompatible implicit declaration of built-in function 'printf'
+../Core/Src/freertos.c:34:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   33 | #include "sound.h"
+  +++ |+#include <stdio.h>
+   34 | //#include "stm32h7xx_hal_rtc.h"
+arm-none-eabi-gcc -o "743-6.elf" @"objects.list"   -mcpu=cortex-m7 -T"E:\ARM\743-6\743-6\STM32H743VITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="743-6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 743-6.elf
+ 
+arm-none-eabi-size   743-6.elf 
+arm-none-eabi-objdump -h -S  743-6.elf  > "743-6.list"
+arm-none-eabi-objcopy  -O binary  743-6.elf  "743-6.bin"
+   text	   data	    bss	    dec	    hex	filename
+ 145900	    772	  51092	 197764	  30484	743-6.elf
+Finished building: default.size.stdout
+ 
+Finished building: 743-6.bin
+ 
+Finished building: 743-6.list
+ 
+14:34:17 **** Incremental Build of configuration Debug for project 743-6 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H743xx -c -I../Core/Inc -I../Drivers/BSP/w25qxx -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+In file included from ../Core/Src/freertos.c:31:
+../Core/Inc/parameter.h:72:67: error: 'A5' undeclared here (not in a function)
+   72 | uint8_t RTC_dial[] =  { 0x5A, 0xA5, 0x0B, 0x82, 0x00, 0x9C, 0x5A, A5, 32, 0A, 01, 0B, 0C, 0D };//RTC READ, year-month-date-time-minute-second
+      |                                                                   ^~
+../Core/Inc/parameter.h:72:75: error: invalid suffix "A" on integer constant
+   72 | uint8_t RTC_dial[] =  { 0x5A, 0xA5, 0x0B, 0x82, 0x00, 0x9C, 0x5A, A5, 32, 0A, 01, 0B, 0C, 0D };//RTC READ, year-month-date-time-minute-second
+      |                                                                           ^~
+../Core/Inc/parameter.h:72:83: error: invalid suffix "B" on integer constant
+   72 | uint8_t RTC_dial[] =  { 0x5A, 0xA5, 0x0B, 0x82, 0x00, 0x9C, 0x5A, A5, 32, 0A, 01, 0B, 0C, 0D };//RTC READ, year-month-date-time-minute-second
+      |                                                                                   ^~
+../Core/Inc/parameter.h:72:87: error: invalid suffix "C" on integer constant
+   72 | uint8_t RTC_dial[] =  { 0x5A, 0xA5, 0x0B, 0x82, 0x00, 0x9C, 0x5A, A5, 32, 0A, 01, 0B, 0C, 0D };//RTC READ, year-month-date-time-minute-second
+      |                                                                                       ^~
+../Core/Inc/parameter.h:72:91: error: invalid suffix "D" on integer constant
+   72 | uint8_t RTC_dial[] =  { 0x5A, 0xA5, 0x0B, 0x82, 0x00, 0x9C, 0x5A, A5, 32, 0A, 01, 0B, 0C, 0D };//RTC READ, year-month-date-time-minute-second
+      |                                                                                           ^~
+In file included from ../Core/Src/freertos.c:33:
+../Core/Inc/sound.h:29:9: warning: ISO C99 requires whitespace after the macro name
+   29 | #define S_put-lens  17
+      |         ^~~~~
+../Core/Src/freertos.c: In function 'passwd_verify':
+../Core/Src/freertos.c:141:5: warning: implicit declaration of function 'DF_Play' [-Wimplicit-function-declaration]
+  141 |     DF_Play(S_ready);  //Ready it is OK();
+      |     ^~~~~~~
+../Core/Src/freertos.c: In function 'GUI_1602':
+../Core/Src/freertos.c:287:3: warning: implicit declaration of function 'DF_Volume' [-Wimplicit-function-declaration]
+  287 |   DF_Volume(15);
+      |   ^~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask03':
+../Core/Src/freertos.c:781:15: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  781 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |               ^~~~
+../Core/Src/freertos.c:781:20: warning: implicit declaration of function 'strtok' [-Wimplicit-function-declaration]
+  781 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |                    ^~~~~~
+../Core/Src/freertos.c: In function 'StartTask06':
+../Core/Src/freertos.c:908:4: warning: implicit declaration of function 'W25qxx_EraseSector' [-Wimplicit-function-declaration]
+  908 |    W25qxx_EraseSector(0);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:909:4: warning: implicit declaration of function 'W25qxx_PageProgram' [-Wimplicit-function-declaration]
+  909 |    W25qxx_PageProgram(wdata, 3800, 300);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:911:4: warning: implicit declaration of function 'W25qxx_Read' [-Wimplicit-function-declaration]
+  911 |    W25qxx_Read(rdata, 3800, 300);
+      |    ^~~~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask08':
+../Core/Src/freertos.c:1008:5: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+ 1008 |     printf( "Date 20%d-%d-%d\r\n",sdatestructureget.Year,sdatestructureget.Month, sdatestructureget.Date);
+      |     ^~~~~~
+../Core/Src/freertos.c:1008:5: warning: incompatible implicit declaration of built-in function 'printf'
+../Core/Src/freertos.c:34:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   33 | #include "sound.h"
+  +++ |+#include <stdio.h>
+   34 | //#include "stm32h7xx_hal_rtc.h"
+make: *** [Core/Src/subdir.mk:67: Core/Src/freertos.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+14:35:26 **** Incremental Build of configuration Debug for project 743-6 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H743xx -c -I../Core/Inc -I../Drivers/BSP/w25qxx -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+In file included from ../Core/Src/freertos.c:33:
+../Core/Inc/sound.h:29:9: warning: ISO C99 requires whitespace after the macro name
+   29 | #define S_put-lens  17
+      |         ^~~~~
+../Core/Src/freertos.c: In function 'passwd_verify':
+../Core/Src/freertos.c:141:5: warning: implicit declaration of function 'DF_Play' [-Wimplicit-function-declaration]
+  141 |     DF_Play(S_ready);  //Ready it is OK();
+      |     ^~~~~~~
+../Core/Src/freertos.c: In function 'GUI_1602':
+../Core/Src/freertos.c:287:3: warning: implicit declaration of function 'DF_Volume' [-Wimplicit-function-declaration]
+  287 |   DF_Volume(15);
+      |   ^~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask03':
+../Core/Src/freertos.c:781:15: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  781 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |               ^~~~
+../Core/Src/freertos.c:781:20: warning: implicit declaration of function 'strtok' [-Wimplicit-function-declaration]
+  781 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |                    ^~~~~~
+../Core/Src/freertos.c: In function 'StartTask06':
+../Core/Src/freertos.c:908:4: warning: implicit declaration of function 'W25qxx_EraseSector' [-Wimplicit-function-declaration]
+  908 |    W25qxx_EraseSector(0);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:909:4: warning: implicit declaration of function 'W25qxx_PageProgram' [-Wimplicit-function-declaration]
+  909 |    W25qxx_PageProgram(wdata, 3800, 300);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:911:4: warning: implicit declaration of function 'W25qxx_Read' [-Wimplicit-function-declaration]
+  911 |    W25qxx_Read(rdata, 3800, 300);
+      |    ^~~~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask08':
+../Core/Src/freertos.c:1008:5: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+ 1008 |     printf( "Date 20%d-%d-%d\r\n",sdatestructureget.Year,sdatestructureget.Month, sdatestructureget.Date);
+      |     ^~~~~~
+../Core/Src/freertos.c:1008:5: warning: incompatible implicit declaration of built-in function 'printf'
+../Core/Src/freertos.c:34:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   33 | #include "sound.h"
+  +++ |+#include <stdio.h>
+   34 | //#include "stm32h7xx_hal_rtc.h"
+arm-none-eabi-gcc -o "743-6.elf" @"objects.list"   -mcpu=cortex-m7 -T"E:\ARM\743-6\743-6\STM32H743VITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="743-6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 743-6.elf
+ 
+arm-none-eabi-size   743-6.elf 
+arm-none-eabi-objdump -h -S  743-6.elf  > "743-6.list"
+arm-none-eabi-objcopy  -O binary  743-6.elf  "743-6.bin"
+   text	   data	    bss	    dec	    hex	filename
+ 145916	    788	  51092	 197796	  304a4	743-6.elf
+Finished building: default.size.stdout
+ 
+Finished building: 743-6.bin
+ 
+Finished building: 743-6.list
+ 
+14:37:04 **** Incremental Build of configuration Debug for project 743-6 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H743xx -c -I../Core/Inc -I../Drivers/BSP/w25qxx -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+In file included from ../Core/Src/freertos.c:33:
+../Core/Inc/sound.h:29:9: warning: ISO C99 requires whitespace after the macro name
+   29 | #define S_put-lens  17
+      |         ^~~~~
+../Core/Src/freertos.c: In function 'passwd_verify':
+../Core/Src/freertos.c:141:5: warning: implicit declaration of function 'DF_Play' [-Wimplicit-function-declaration]
+  141 |     DF_Play(S_ready);  //Ready it is OK();
+      |     ^~~~~~~
+../Core/Src/freertos.c: In function 'GUI_1602':
+../Core/Src/freertos.c:287:3: warning: implicit declaration of function 'DF_Volume' [-Wimplicit-function-declaration]
+  287 |   DF_Volume(15);
+      |   ^~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask03':
+../Core/Src/freertos.c:781:15: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  781 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |               ^~~~
+../Core/Src/freertos.c:781:20: warning: implicit declaration of function 'strtok' [-Wimplicit-function-declaration]
+  781 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |                    ^~~~~~
+../Core/Src/freertos.c: In function 'StartTask06':
+../Core/Src/freertos.c:908:4: warning: implicit declaration of function 'W25qxx_EraseSector' [-Wimplicit-function-declaration]
+  908 |    W25qxx_EraseSector(0);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:909:4: warning: implicit declaration of function 'W25qxx_PageProgram' [-Wimplicit-function-declaration]
+  909 |    W25qxx_PageProgram(wdata, 3800, 300);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:911:4: warning: implicit declaration of function 'W25qxx_Read' [-Wimplicit-function-declaration]
+  911 |    W25qxx_Read(rdata, 3800, 300);
+      |    ^~~~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask08':
+../Core/Src/freertos.c:1008:5: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+ 1008 |     printf( "Date 20%d-%d-%d\r\n",sdatestructureget.Year,sdatestructureget.Month, sdatestructureget.Date);
+      |     ^~~~~~
+../Core/Src/freertos.c:1008:5: warning: incompatible implicit declaration of built-in function 'printf'
+../Core/Src/freertos.c:34:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   33 | #include "sound.h"
+  +++ |+#include <stdio.h>
+   34 | //#include "stm32h7xx_hal_rtc.h"
+arm-none-eabi-gcc -o "743-6.elf" @"objects.list"   -mcpu=cortex-m7 -T"E:\ARM\743-6\743-6\STM32H743VITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="743-6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 743-6.elf
+ 
+arm-none-eabi-size   743-6.elf 
+arm-none-eabi-objdump -h -S  743-6.elf  > "743-6.list"
+arm-none-eabi-objcopy  -O binary  743-6.elf  "743-6.bin"
+   text	   data	    bss	    dec	    hex	filename
+ 145916	    788	  51092	 197796	  304a4	743-6.elf
+Finished building: default.size.stdout
+ 
+Finished building: 743-6.bin
+ 
+Finished building: 743-6.list
+ 
+14:50:11 **** Incremental Build of configuration Debug for project 743-6 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H743xx -c -I../Core/Inc -I../Drivers/BSP/w25qxx -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+In file included from ../Core/Src/freertos.c:31:
+../Core/Inc/parameter.h:73:103: error: invalid suffix "xOO" on integer constant
+   73 | uint8_t RTC_disp[] =  { 0x5A, 0xA5, 0x0B, 0x82, 0x00, 0x10, 0x14, 0x02, 0x16, 0x06, 0x0B, 0x0C, 0x0D, 0xOO };
+      |                                                                                                       ^~~~
+In file included from ../Core/Src/freertos.c:33:
+../Core/Inc/sound.h:29:9: warning: ISO C99 requires whitespace after the macro name
+   29 | #define S_put-lens  17
+      |         ^~~~~
+../Core/Src/freertos.c: In function 'passwd_verify':
+../Core/Src/freertos.c:141:5: warning: implicit declaration of function 'DF_Play' [-Wimplicit-function-declaration]
+  141 |     DF_Play(S_ready);  //Ready it is OK();
+      |     ^~~~~~~
+../Core/Src/freertos.c: In function 'GUI_1602':
+../Core/Src/freertos.c:287:3: warning: implicit declaration of function 'DF_Volume' [-Wimplicit-function-declaration]
+  287 |   DF_Volume(15);
+      |   ^~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask03':
+../Core/Src/freertos.c:781:15: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  781 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |               ^~~~
+../Core/Src/freertos.c:781:20: warning: implicit declaration of function 'strtok' [-Wimplicit-function-declaration]
+  781 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |                    ^~~~~~
+../Core/Src/freertos.c: In function 'StartTask06':
+../Core/Src/freertos.c:908:4: warning: implicit declaration of function 'W25qxx_EraseSector' [-Wimplicit-function-declaration]
+  908 |    W25qxx_EraseSector(0);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:909:4: warning: implicit declaration of function 'W25qxx_PageProgram' [-Wimplicit-function-declaration]
+  909 |    W25qxx_PageProgram(wdata, 3800, 300);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:911:4: warning: implicit declaration of function 'W25qxx_Read' [-Wimplicit-function-declaration]
+  911 |    W25qxx_Read(rdata, 3800, 300);
+      |    ^~~~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask08':
+../Core/Src/freertos.c:1008:5: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+ 1008 |     printf( "Date 20%d-%d-%d\r\n",sdatestructureget.Year,sdatestructureget.Month, sdatestructureget.Date);
+      |     ^~~~~~
+../Core/Src/freertos.c:1008:5: warning: incompatible implicit declaration of built-in function 'printf'
+../Core/Src/freertos.c:34:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   33 | #include "sound.h"
+  +++ |+#include <stdio.h>
+   34 | //#include "stm32h7xx_hal_rtc.h"
+make: *** [Core/Src/subdir.mk:67: Core/Src/freertos.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+14:50:32 **** Incremental Build of configuration Debug for project 743-6 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H743xx -c -I../Core/Inc -I../Drivers/BSP/w25qxx -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+In file included from ../Core/Src/freertos.c:33:
+../Core/Inc/sound.h:29:9: warning: ISO C99 requires whitespace after the macro name
+   29 | #define S_put-lens  17
+      |         ^~~~~
+../Core/Src/freertos.c: In function 'passwd_verify':
+../Core/Src/freertos.c:141:5: warning: implicit declaration of function 'DF_Play' [-Wimplicit-function-declaration]
+  141 |     DF_Play(S_ready);  //Ready it is OK();
+      |     ^~~~~~~
+../Core/Src/freertos.c: In function 'GUI_1602':
+../Core/Src/freertos.c:287:3: warning: implicit declaration of function 'DF_Volume' [-Wimplicit-function-declaration]
+  287 |   DF_Volume(15);
+      |   ^~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask03':
+../Core/Src/freertos.c:781:15: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  781 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |               ^~~~
+../Core/Src/freertos.c:781:20: warning: implicit declaration of function 'strtok' [-Wimplicit-function-declaration]
+  781 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |                    ^~~~~~
+../Core/Src/freertos.c: In function 'StartTask06':
+../Core/Src/freertos.c:908:4: warning: implicit declaration of function 'W25qxx_EraseSector' [-Wimplicit-function-declaration]
+  908 |    W25qxx_EraseSector(0);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:909:4: warning: implicit declaration of function 'W25qxx_PageProgram' [-Wimplicit-function-declaration]
+  909 |    W25qxx_PageProgram(wdata, 3800, 300);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:911:4: warning: implicit declaration of function 'W25qxx_Read' [-Wimplicit-function-declaration]
+  911 |    W25qxx_Read(rdata, 3800, 300);
+      |    ^~~~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask08':
+../Core/Src/freertos.c:1008:5: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+ 1008 |     printf( "Date 20%d-%d-%d\r\n",sdatestructureget.Year,sdatestructureget.Month, sdatestructureget.Date);
+      |     ^~~~~~
+../Core/Src/freertos.c:1008:5: warning: incompatible implicit declaration of built-in function 'printf'
+../Core/Src/freertos.c:34:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   33 | #include "sound.h"
+  +++ |+#include <stdio.h>
+   34 | //#include "stm32h7xx_hal_rtc.h"
+arm-none-eabi-gcc -o "743-6.elf" @"objects.list"   -mcpu=cortex-m7 -T"E:\ARM\743-6\743-6\STM32H743VITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="743-6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 743-6.elf
+ 
+arm-none-eabi-size   743-6.elf 
+arm-none-eabi-objdump -h -S  743-6.elf  > "743-6.list"
+arm-none-eabi-objcopy  -O binary  743-6.elf  "743-6.bin"
+   text	   data	    bss	    dec	    hex	filename
+ 145932	    804	  51092	 197828	  304c4	743-6.elf
+Finished building: default.size.stdout
+ 
+Finished building: 743-6.bin
+ 
+Finished building: 743-6.list
+ 
+15:00:47 **** Incremental Build of configuration Debug for project 743-6 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H743xx -c -I../Core/Inc -I../Drivers/BSP/w25qxx -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+In file included from ../Core/Src/freertos.c:33:
+../Core/Inc/sound.h:29:9: warning: ISO C99 requires whitespace after the macro name
+   29 | #define S_put-lens  17
+      |         ^~~~~
+../Core/Src/freertos.c: In function 'passwd_verify':
+../Core/Src/freertos.c:141:5: warning: implicit declaration of function 'DF_Play' [-Wimplicit-function-declaration]
+  141 |     DF_Play(S_ready);  //Ready it is OK();
+      |     ^~~~~~~
+../Core/Src/freertos.c: In function 'GUI_1602':
+../Core/Src/freertos.c:287:3: warning: implicit declaration of function 'DF_Volume' [-Wimplicit-function-declaration]
+  287 |   DF_Volume(15);
+      |   ^~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask03':
+../Core/Src/freertos.c:781:15: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  781 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |               ^~~~
+../Core/Src/freertos.c:781:20: warning: implicit declaration of function 'strtok' [-Wimplicit-function-declaration]
+  781 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |                    ^~~~~~
+../Core/Src/freertos.c: In function 'StartTask06':
+../Core/Src/freertos.c:908:4: warning: implicit declaration of function 'W25qxx_EraseSector' [-Wimplicit-function-declaration]
+  908 |    W25qxx_EraseSector(0);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:909:4: warning: implicit declaration of function 'W25qxx_PageProgram' [-Wimplicit-function-declaration]
+  909 |    W25qxx_PageProgram(wdata, 3800, 300);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:911:4: warning: implicit declaration of function 'W25qxx_Read' [-Wimplicit-function-declaration]
+  911 |    W25qxx_Read(rdata, 3800, 300);
+      |    ^~~~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask08':
+../Core/Src/freertos.c:1008:5: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+ 1008 |     printf( "Date 20%d-%d-%d\r\n",sdatestructureget.Year,sdatestructureget.Month, sdatestructureget.Date);
+      |     ^~~~~~
+../Core/Src/freertos.c:1008:5: warning: incompatible implicit declaration of built-in function 'printf'
+../Core/Src/freertos.c:34:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   33 | #include "sound.h"
+  +++ |+#include <stdio.h>
+   34 | //#include "stm32h7xx_hal_rtc.h"
+../Core/Src/freertos.c:1014:27: error: invalid initializer
+ 1014 |    uint8_t RTC_disp[10] = stimestructureget.Hours
+      |                           ^~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:1015:4: error: expected ',' or ';' before 'uint8_t'
+ 1015 |    uint8_t RTC_disp[11] = stimestructureget.Minutes
+      |    ^~~~~~~
+../Core/Src/freertos.c:1014:12: warning: unused variable 'RTC_disp' [-Wunused-variable]
+ 1014 |    uint8_t RTC_disp[10] = stimestructureget.Hours
+      |            ^~~~~~~~
+make: *** [Core/Src/subdir.mk:67: Core/Src/freertos.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+15:00:58 **** Incremental Build of configuration Debug for project 743-6 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H743xx -c -I../Core/Inc -I../Drivers/BSP/w25qxx -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+In file included from ../Core/Src/freertos.c:33:
+../Core/Inc/sound.h:29:9: warning: ISO C99 requires whitespace after the macro name
+   29 | #define S_put-lens  17
+      |         ^~~~~
+../Core/Src/freertos.c: In function 'passwd_verify':
+../Core/Src/freertos.c:141:5: warning: implicit declaration of function 'DF_Play' [-Wimplicit-function-declaration]
+  141 |     DF_Play(S_ready);  //Ready it is OK();
+      |     ^~~~~~~
+../Core/Src/freertos.c: In function 'GUI_1602':
+../Core/Src/freertos.c:287:3: warning: implicit declaration of function 'DF_Volume' [-Wimplicit-function-declaration]
+  287 |   DF_Volume(15);
+      |   ^~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask03':
+../Core/Src/freertos.c:781:15: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  781 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |               ^~~~
+../Core/Src/freertos.c:781:20: warning: implicit declaration of function 'strtok' [-Wimplicit-function-declaration]
+  781 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |                    ^~~~~~
+../Core/Src/freertos.c: In function 'StartTask06':
+../Core/Src/freertos.c:908:4: warning: implicit declaration of function 'W25qxx_EraseSector' [-Wimplicit-function-declaration]
+  908 |    W25qxx_EraseSector(0);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:909:4: warning: implicit declaration of function 'W25qxx_PageProgram' [-Wimplicit-function-declaration]
+  909 |    W25qxx_PageProgram(wdata, 3800, 300);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:911:4: warning: implicit declaration of function 'W25qxx_Read' [-Wimplicit-function-declaration]
+  911 |    W25qxx_Read(rdata, 3800, 300);
+      |    ^~~~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask08':
+../Core/Src/freertos.c:1008:5: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+ 1008 |     printf( "Date 20%d-%d-%d\r\n",sdatestructureget.Year,sdatestructureget.Month, sdatestructureget.Date);
+      |     ^~~~~~
+../Core/Src/freertos.c:1008:5: warning: incompatible implicit declaration of built-in function 'printf'
+../Core/Src/freertos.c:34:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   33 | #include "sound.h"
+  +++ |+#include <stdio.h>
+   34 | //#include "stm32h7xx_hal_rtc.h"
+../Core/Src/freertos.c:1014:27: error: invalid initializer
+ 1014 |    uint8_t RTC_disp[10] = stimestructureget.Hours;
+      |                           ^~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:1015:12: error: conflicting types for 'RTC_disp'
+ 1015 |    uint8_t RTC_disp[11] = stimestructureget.Minutes;
+      |            ^~~~~~~~
+../Core/Src/freertos.c:1014:12: note: previous definition of 'RTC_disp' was here
+ 1014 |    uint8_t RTC_disp[10] = stimestructureget.Hours;
+      |            ^~~~~~~~
+../Core/Src/freertos.c:1015:27: error: invalid initializer
+ 1015 |    uint8_t RTC_disp[11] = stimestructureget.Minutes;
+      |                           ^~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:1016:12: error: conflicting types for 'RTC_disp'
+ 1016 |    uint8_t RTC_disp[12] = stimestructureget.Seconds;
+      |            ^~~~~~~~
+../Core/Src/freertos.c:1015:12: note: previous definition of 'RTC_disp' was here
+ 1015 |    uint8_t RTC_disp[11] = stimestructureget.Minutes;
+      |            ^~~~~~~~
+../Core/Src/freertos.c:1016:27: error: invalid initializer
+ 1016 |    uint8_t RTC_disp[12] = stimestructureget.Seconds;
+      |                           ^~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:67: Core/Src/freertos.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+15:01:32 **** Incremental Build of configuration Debug for project 743-6 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H743xx -c -I../Core/Inc -I../Drivers/BSP/w25qxx -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+In file included from ../Core/Src/freertos.c:33:
+../Core/Inc/sound.h:29:9: warning: ISO C99 requires whitespace after the macro name
+   29 | #define S_put-lens  17
+      |         ^~~~~
+../Core/Src/freertos.c: In function 'passwd_verify':
+../Core/Src/freertos.c:141:5: warning: implicit declaration of function 'DF_Play' [-Wimplicit-function-declaration]
+  141 |     DF_Play(S_ready);  //Ready it is OK();
+      |     ^~~~~~~
+../Core/Src/freertos.c: In function 'GUI_1602':
+../Core/Src/freertos.c:287:3: warning: implicit declaration of function 'DF_Volume' [-Wimplicit-function-declaration]
+  287 |   DF_Volume(15);
+      |   ^~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask03':
+../Core/Src/freertos.c:781:15: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  781 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |               ^~~~
+../Core/Src/freertos.c:781:20: warning: implicit declaration of function 'strtok' [-Wimplicit-function-declaration]
+  781 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |                    ^~~~~~
+../Core/Src/freertos.c: In function 'StartTask06':
+../Core/Src/freertos.c:908:4: warning: implicit declaration of function 'W25qxx_EraseSector' [-Wimplicit-function-declaration]
+  908 |    W25qxx_EraseSector(0);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:909:4: warning: implicit declaration of function 'W25qxx_PageProgram' [-Wimplicit-function-declaration]
+  909 |    W25qxx_PageProgram(wdata, 3800, 300);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:911:4: warning: implicit declaration of function 'W25qxx_Read' [-Wimplicit-function-declaration]
+  911 |    W25qxx_Read(rdata, 3800, 300);
+      |    ^~~~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask08':
+../Core/Src/freertos.c:1008:5: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+ 1008 |     printf( "Date 20%d-%d-%d\r\n",sdatestructureget.Year,sdatestructureget.Month, sdatestructureget.Date);
+      |     ^~~~~~
+../Core/Src/freertos.c:1008:5: warning: incompatible implicit declaration of built-in function 'printf'
+../Core/Src/freertos.c:34:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   33 | #include "sound.h"
+  +++ |+#include <stdio.h>
+   34 | //#include "stm32h7xx_hal_rtc.h"
+arm-none-eabi-gcc -o "743-6.elf" @"objects.list"   -mcpu=cortex-m7 -T"E:\ARM\743-6\743-6\STM32H743VITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="743-6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 743-6.elf
+ 
+arm-none-eabi-size   743-6.elf 
+arm-none-eabi-objdump -h -S  743-6.elf  > "743-6.list"
+arm-none-eabi-objcopy  -O binary  743-6.elf  "743-6.bin"
+   text	   data	    bss	    dec	    hex	filename
+ 145948	    788	  51092	 197828	  304c4	743-6.elf
+Finished building: default.size.stdout
+ 
+Finished building: 743-6.bin
+ 
+Finished building: 743-6.list
+ 
+15:07:07 **** Incremental Build of configuration Debug for project 743-6 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H743xx -c -I../Core/Inc -I../Drivers/BSP/w25qxx -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+In file included from ../Core/Src/freertos.c:33:
+../Core/Inc/sound.h:29:9: warning: ISO C99 requires whitespace after the macro name
+   29 | #define S_put-lens  17
+      |         ^~~~~
+../Core/Src/freertos.c: In function 'passwd_verify':
+../Core/Src/freertos.c:141:5: warning: implicit declaration of function 'DF_Play' [-Wimplicit-function-declaration]
+  141 |     DF_Play(S_ready);  //Ready it is OK();
+      |     ^~~~~~~
+../Core/Src/freertos.c: In function 'GUI_1602':
+../Core/Src/freertos.c:287:3: warning: implicit declaration of function 'DF_Volume' [-Wimplicit-function-declaration]
+  287 |   DF_Volume(15);
+      |   ^~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask03':
+../Core/Src/freertos.c:781:15: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  781 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |               ^~~~
+../Core/Src/freertos.c:781:20: warning: implicit declaration of function 'strtok' [-Wimplicit-function-declaration]
+  781 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |                    ^~~~~~
+../Core/Src/freertos.c: In function 'StartTask06':
+../Core/Src/freertos.c:908:4: warning: implicit declaration of function 'W25qxx_EraseSector' [-Wimplicit-function-declaration]
+  908 |    W25qxx_EraseSector(0);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:909:4: warning: implicit declaration of function 'W25qxx_PageProgram' [-Wimplicit-function-declaration]
+  909 |    W25qxx_PageProgram(wdata, 3800, 300);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:911:4: warning: implicit declaration of function 'W25qxx_Read' [-Wimplicit-function-declaration]
+  911 |    W25qxx_Read(rdata, 3800, 300);
+      |    ^~~~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask08':
+../Core/Src/freertos.c:1008:5: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+ 1008 |     printf( "Date 20%d-%d-%d\r\n",sdatestructureget.Year,sdatestructureget.Month, sdatestructureget.Date);
+      |     ^~~~~~
+../Core/Src/freertos.c:1008:5: warning: incompatible implicit declaration of built-in function 'printf'
+../Core/Src/freertos.c:34:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   33 | #include "sound.h"
+  +++ |+#include <stdio.h>
+   34 | //#include "stm32h7xx_hal_rtc.h"
+../Core/Src/freertos.c:1013:35: error: 'RTC_TimeTypeDef' {aka 'struct <anonymous>'} has no member named 'Year'
+ 1013 |    RTC_disp[6] = stimestructureget.Year;
+      |                                   ^
+../Core/Src/freertos.c:1014:35: error: 'RTC_TimeTypeDef' {aka 'struct <anonymous>'} has no member named 'Month'
+ 1014 |    RTC_disp[7] = stimestructureget.Month;
+      |                                   ^
+../Core/Src/freertos.c:1015:35: error: 'RTC_TimeTypeDef' {aka 'struct <anonymous>'} has no member named 'Date'
+ 1015 |    RTC_disp[8] = stimestructureget.Date;
+      |                                   ^
+make: *** [Core/Src/subdir.mk:67: Core/Src/freertos.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+15:07:49 **** Incremental Build of configuration Debug for project 743-6 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H743xx -c -I../Core/Inc -I../Drivers/BSP/w25qxx -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+In file included from ../Core/Src/freertos.c:33:
+../Core/Inc/sound.h:29:9: warning: ISO C99 requires whitespace after the macro name
+   29 | #define S_put-lens  17
+      |         ^~~~~
+../Core/Src/freertos.c: In function 'passwd_verify':
+../Core/Src/freertos.c:141:5: warning: implicit declaration of function 'DF_Play' [-Wimplicit-function-declaration]
+  141 |     DF_Play(S_ready);  //Ready it is OK();
+      |     ^~~~~~~
+../Core/Src/freertos.c: In function 'GUI_1602':
+../Core/Src/freertos.c:287:3: warning: implicit declaration of function 'DF_Volume' [-Wimplicit-function-declaration]
+  287 |   DF_Volume(15);
+      |   ^~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask03':
+../Core/Src/freertos.c:781:15: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  781 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |               ^~~~
+../Core/Src/freertos.c:781:20: warning: implicit declaration of function 'strtok' [-Wimplicit-function-declaration]
+  781 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |                    ^~~~~~
+../Core/Src/freertos.c: In function 'StartTask06':
+../Core/Src/freertos.c:908:4: warning: implicit declaration of function 'W25qxx_EraseSector' [-Wimplicit-function-declaration]
+  908 |    W25qxx_EraseSector(0);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:909:4: warning: implicit declaration of function 'W25qxx_PageProgram' [-Wimplicit-function-declaration]
+  909 |    W25qxx_PageProgram(wdata, 3800, 300);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:911:4: warning: implicit declaration of function 'W25qxx_Read' [-Wimplicit-function-declaration]
+  911 |    W25qxx_Read(rdata, 3800, 300);
+      |    ^~~~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask08':
+../Core/Src/freertos.c:1008:5: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+ 1008 |     printf( "Date 20%d-%d-%d\r\n",sdatestructureget.Year,sdatestructureget.Month, sdatestructureget.Date);
+      |     ^~~~~~
+../Core/Src/freertos.c:1008:5: warning: incompatible implicit declaration of built-in function 'printf'
+../Core/Src/freertos.c:34:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   33 | #include "sound.h"
+  +++ |+#include <stdio.h>
+   34 | //#include "stm32h7xx_hal_rtc.h"
+../Core/Src/freertos.c:1013:35: error: 'RTC_TimeTypeDef' {aka 'struct <anonymous>'} has no member named 'Year'
+ 1013 |    RTC_disp[6] = stimestructureget.Year;
+      |                                   ^
+make: *** [Core/Src/subdir.mk:67: Core/Src/freertos.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+15:08:12 **** Incremental Build of configuration Debug for project 743-6 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H743xx -c -I../Core/Inc -I../Drivers/BSP/w25qxx -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+In file included from ../Core/Src/freertos.c:33:
+../Core/Inc/sound.h:29:9: warning: ISO C99 requires whitespace after the macro name
+   29 | #define S_put-lens  17
+      |         ^~~~~
+../Core/Src/freertos.c: In function 'passwd_verify':
+../Core/Src/freertos.c:141:5: warning: implicit declaration of function 'DF_Play' [-Wimplicit-function-declaration]
+  141 |     DF_Play(S_ready);  //Ready it is OK();
+      |     ^~~~~~~
+../Core/Src/freertos.c: In function 'GUI_1602':
+../Core/Src/freertos.c:287:3: warning: implicit declaration of function 'DF_Volume' [-Wimplicit-function-declaration]
+  287 |   DF_Volume(15);
+      |   ^~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask03':
+../Core/Src/freertos.c:781:15: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  781 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |               ^~~~
+../Core/Src/freertos.c:781:20: warning: implicit declaration of function 'strtok' [-Wimplicit-function-declaration]
+  781 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |                    ^~~~~~
+../Core/Src/freertos.c: In function 'StartTask06':
+../Core/Src/freertos.c:908:4: warning: implicit declaration of function 'W25qxx_EraseSector' [-Wimplicit-function-declaration]
+  908 |    W25qxx_EraseSector(0);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:909:4: warning: implicit declaration of function 'W25qxx_PageProgram' [-Wimplicit-function-declaration]
+  909 |    W25qxx_PageProgram(wdata, 3800, 300);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:911:4: warning: implicit declaration of function 'W25qxx_Read' [-Wimplicit-function-declaration]
+  911 |    W25qxx_Read(rdata, 3800, 300);
+      |    ^~~~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask08':
+../Core/Src/freertos.c:1008:5: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+ 1008 |     printf( "Date 20%d-%d-%d\r\n",sdatestructureget.Year,sdatestructureget.Month, sdatestructureget.Date);
+      |     ^~~~~~
+../Core/Src/freertos.c:1008:5: warning: incompatible implicit declaration of built-in function 'printf'
+../Core/Src/freertos.c:34:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   33 | #include "sound.h"
+  +++ |+#include <stdio.h>
+   34 | //#include "stm32h7xx_hal_rtc.h"
+arm-none-eabi-gcc -o "743-6.elf" @"objects.list"   -mcpu=cortex-m7 -T"E:\ARM\743-6\743-6\STM32H743VITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="743-6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 743-6.elf
+ 
+arm-none-eabi-size   743-6.elf 
+arm-none-eabi-objdump -h -S  743-6.elf  > "743-6.list"
+arm-none-eabi-objcopy  -O binary  743-6.elf  "743-6.bin"
+   text	   data	    bss	    dec	    hex	filename
+ 145980	    788	  51092	 197860	  304e4	743-6.elf
+Finished building: default.size.stdout
+ 
+Finished building: 743-6.bin
+ 
+Finished building: 743-6.list
+ 
+17:26:53 **** Incremental Build of configuration Debug for project 743-6 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H743xx -c -I../Core/Inc -I../Drivers/BSP/w25qxx -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+arm-none-eabi-gcc "../Core/Src/rtc.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H743xx -c -I../Core/Inc -I../Drivers/BSP/w25qxx -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/rtc.d" -MT"Core/Src/rtc.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/rtc.o"
+../Core/Src/rtc.c: In function 'MX_RTC_Init':
+../Core/Src/rtc.c:84:6: warning: "/*" within comment [-Wcomment]
+   84 |      /* USER CODE END RTC_Init 2;*/
+      |       
+../Core/Src/rtc.c:85:2: error: expected expression before '/' token
+   85 | */
+      |  ^
+../Core/Src/rtc.c:38:21: warning: unused variable 'sAlarm' [-Wunused-variable]
+   38 |   RTC_AlarmTypeDef  sAlarm = {0};
+      |                     ^~~~~~
+../Core/Src/rtc.c:37:20: warning: unused variable 'sDate' [-Wunused-variable]
+   37 |   RTC_DateTypeDef  sDate = {0};
+      |                    ^~~~~
+../Core/Src/rtc.c:36:20: warning: unused variable 'sTime' [-Wunused-variable]
+   36 |   RTC_TimeTypeDef  sTime = {0};
+      |                    ^~~~~
+make: *** [Core/Src/subdir.mk:67: Core/Src/rtc.o] Error 1
+make: *** Waiting for unfinished jobs....
+In file included from ../Core/Src/freertos.c:33:
+../Core/Inc/sound.h:29:9: warning: ISO C99 requires whitespace after the macro name
+   29 | #define S_put-lens  17
+      |         ^~~~~
+../Core/Src/freertos.c: In function 'passwd_verify':
+../Core/Src/freertos.c:141:5: warning: implicit declaration of function 'DF_Play' [-Wimplicit-function-declaration]
+  141 |     DF_Play(S_ready);  //Ready it is OK();
+      |     ^~~~~~~
+../Core/Src/freertos.c: In function 'GUI_1602':
+../Core/Src/freertos.c:287:3: warning: implicit declaration of function 'DF_Volume' [-Wimplicit-function-declaration]
+  287 |   DF_Volume(15);
+      |   ^~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask03':
+../Core/Src/freertos.c:781:15: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  781 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |               ^~~~
+../Core/Src/freertos.c:781:20: warning: implicit declaration of function 'strtok' [-Wimplicit-function-declaration]
+  781 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |                    ^~~~~~
+../Core/Src/freertos.c: In function 'StartTask06':
+../Core/Src/freertos.c:908:4: warning: implicit declaration of function 'W25qxx_EraseSector' [-Wimplicit-function-declaration]
+  908 |    W25qxx_EraseSector(0);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:909:4: warning: implicit declaration of function 'W25qxx_PageProgram' [-Wimplicit-function-declaration]
+  909 |    W25qxx_PageProgram(wdata, 3800, 300);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:911:4: warning: implicit declaration of function 'W25qxx_Read' [-Wimplicit-function-declaration]
+  911 |    W25qxx_Read(rdata, 3800, 300);
+      |    ^~~~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask08':
+../Core/Src/freertos.c:1008:5: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+ 1008 |     printf( "Date 20%d-%d-%d\r\n",sdatestructureget.Year,sdatestructureget.Month, sdatestructureget.Date);
+      |     ^~~~~~
+../Core/Src/freertos.c:1008:5: warning: incompatible implicit declaration of built-in function 'printf'
+../Core/Src/freertos.c:34:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   33 | #include "sound.h"
+  +++ |+#include <stdio.h>
+   34 | //#include "stm32h7xx_hal_rtc.h"
+../Core/Src/freertos.c:1020:17: error: lvalue required as left operand of assignment
+ 1020 |    RTC_disp[11] = stimestructureget.Minutes;
+      |                 ^
+make: *** [Core/Src/subdir.mk:67: Core/Src/freertos.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+17:27:09 **** Incremental Build of configuration Debug for project 743-6 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H743xx -c -I../Core/Inc -I../Drivers/BSP/w25qxx -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+arm-none-eabi-gcc "../Core/Src/rtc.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H743xx -c -I../Core/Inc -I../Drivers/BSP/w25qxx -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/rtc.d" -MT"Core/Src/rtc.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/rtc.o"
+../Core/Src/rtc.c: In function 'MX_RTC_Init':
+../Core/Src/rtc.c:84:6: warning: "/*" within comment [-Wcomment]
+   84 |      /* USER CODE END RTC_Init 2;*/
+      |       
+../Core/Src/rtc.c:85:2: error: expected expression before '/' token
+   85 | */
+      |  ^
+../Core/Src/rtc.c:38:21: warning: unused variable 'sAlarm' [-Wunused-variable]
+   38 |   RTC_AlarmTypeDef  sAlarm = {0};
+      |                     ^~~~~~
+../Core/Src/rtc.c:37:20: warning: unused variable 'sDate' [-Wunused-variable]
+   37 |   RTC_DateTypeDef  sDate = {0};
+      |                    ^~~~~
+../Core/Src/rtc.c:36:20: warning: unused variable 'sTime' [-Wunused-variable]
+   36 |   RTC_TimeTypeDef  sTime = {0};
+      |                    ^~~~~
+make: *** [Core/Src/subdir.mk:67: Core/Src/rtc.o] Error 1
+make: *** Waiting for unfinished jobs....
+In file included from ../Core/Src/freertos.c:33:
+../Core/Inc/sound.h:29:9: warning: ISO C99 requires whitespace after the macro name
+   29 | #define S_put-lens  17
+      |         ^~~~~
+../Core/Src/freertos.c: In function 'passwd_verify':
+../Core/Src/freertos.c:141:5: warning: implicit declaration of function 'DF_Play' [-Wimplicit-function-declaration]
+  141 |     DF_Play(S_ready);  //Ready it is OK();
+      |     ^~~~~~~
+../Core/Src/freertos.c: In function 'GUI_1602':
+../Core/Src/freertos.c:287:3: warning: implicit declaration of function 'DF_Volume' [-Wimplicit-function-declaration]
+  287 |   DF_Volume(15);
+      |   ^~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask03':
+../Core/Src/freertos.c:781:15: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  781 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |               ^~~~
+../Core/Src/freertos.c:781:20: warning: implicit declaration of function 'strtok' [-Wimplicit-function-declaration]
+  781 |     HP_lens = atoi(strtok(Rx4_Buffer, " ")); //Lens 1,2,3
+      |                    ^~~~~~
+../Core/Src/freertos.c: In function 'StartTask06':
+../Core/Src/freertos.c:908:4: warning: implicit declaration of function 'W25qxx_EraseSector' [-Wimplicit-function-declaration]
+  908 |    W25qxx_EraseSector(0);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:909:4: warning: implicit declaration of function 'W25qxx_PageProgram' [-Wimplicit-function-declaration]
+  909 |    W25qxx_PageProgram(wdata, 3800, 300);
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:911:4: warning: implicit declaration of function 'W25qxx_Read' [-Wimplicit-function-declaration]
+  911 |    W25qxx_Read(rdata, 3800, 300);
+      |    ^~~~~~~~~~~
+../Core/Src/freertos.c: In function 'StartTask08':
+../Core/Src/freertos.c:1008:5: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+ 1008 |     printf( "Date 20%d-%d-%d\r\n",sdatestructureget.Year,sdatestructureget.Month, sdatestructureget.Date);
+      |     ^~~~~~
+../Core/Src/freertos.c:1008:5: warning: incompatible implicit declaration of built-in function 'printf'
+../Core/Src/freertos.c:34:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   33 | #include "sound.h"
+  +++ |+#include <stdio.h>
+   34 | //#include "stm32h7xx_hal_rtc.h"
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+17:27:35 **** Incremental Build of configuration Debug for project 743-6 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/rtc.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H743xx -c -I../Core/Inc -I../Drivers/BSP/w25qxx -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/rtc.d" -MT"Core/Src/rtc.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/rtc.o"
+../Core/Src/rtc.c: In function 'MX_RTC_Init':
+../Core/Src/rtc.c:38:21: warning: unused variable 'sAlarm' [-Wunused-variable]
+   38 |   RTC_AlarmTypeDef  sAlarm = {0};
+      |                     ^~~~~~
+../Core/Src/rtc.c:37:20: warning: unused variable 'sDate' [-Wunused-variable]
+   37 |   RTC_DateTypeDef  sDate = {0};
+      |                    ^~~~~
+../Core/Src/rtc.c:36:20: warning: unused variable 'sTime' [-Wunused-variable]
+   36 |   RTC_TimeTypeDef  sTime = {0};
+      |                    ^~~~~
+arm-none-eabi-gcc -o "743-6.elf" @"objects.list"   -mcpu=cortex-m7 -T"E:\ARM\743-6\743-6\STM32H743VITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="743-6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 743-6.elf
+ 
+arm-none-eabi-size   743-6.elf 
+arm-none-eabi-objdump -h -S  743-6.elf  > "743-6.list"
+arm-none-eabi-objcopy  -O binary  743-6.elf  "743-6.bin"
+   text	   data	    bss	    dec	    hex	filename
+ 145884	    788	  51092	 197764	  30484	743-6.elf
+Finished building: default.size.stdout
+ 
+Finished building: 743-6.bin
+ 
+Finished building: 743-6.list
+ 

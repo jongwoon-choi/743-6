@@ -15,6 +15,7 @@ C_SRCS += \
 ../Core/Src/sound.c \
 ../Core/Src/spi.c \
 ../Core/Src/stm32h7xx_hal_msp.c \
+../Core/Src/stm32h7xx_hal_timebase_tim.c \
 ../Core/Src/stm32h7xx_it.c \
 ../Core/Src/syscalls.c \
 ../Core/Src/sysmem.c \
@@ -33,6 +34,7 @@ OBJS += \
 ./Core/Src/sound.o \
 ./Core/Src/spi.o \
 ./Core/Src/stm32h7xx_hal_msp.o \
+./Core/Src/stm32h7xx_hal_timebase_tim.o \
 ./Core/Src/stm32h7xx_it.o \
 ./Core/Src/syscalls.o \
 ./Core/Src/sysmem.o \
@@ -51,6 +53,7 @@ C_DEPS += \
 ./Core/Src/sound.d \
 ./Core/Src/spi.d \
 ./Core/Src/stm32h7xx_hal_msp.d \
+./Core/Src/stm32h7xx_hal_timebase_tim.d \
 ./Core/Src/stm32h7xx_it.d \
 ./Core/Src/syscalls.d \
 ./Core/Src/sysmem.d \
